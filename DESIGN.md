@@ -7,9 +7,9 @@ Arabic-first persuasive landing-page hero for SHIFT Creative Solutions. The impl
 ## Visual world
 
 - Near-black field: `#0A0A0A` with a warm-black right drift.
-- Signal orange: `#FE5E0E`, reserved for action, directional accents, and the mobile edge.
+- Signal orange: `#FE5E0E`, reserved for action, directional accents, and the visual field.
 - Warm paper type: `#F7F4EF`; muted copy: `#9B938A`; hairlines: `#3A302B`.
-- IBM Plex Sans Arabic carries the Arabic proposition. Inter handles the small English metadata and navigation descriptor.
+- Noto Sans Arabic carries the Arabic proposition. Inter handles the small English metadata and navigation descriptor.
 - The real glass-field image is the visual mechanism, not a decorative placeholder: it makes movement and next-stage progress tangible.
 
 ## Composition
@@ -18,8 +18,8 @@ Desktop uses the approved 1440×900 canvas as a centered proposition over a full
 
 ## Responsive rules
 
-- Desktop is rendered on a fixed 1440×900 reference canvas, scaled proportionally to fit the viewport and centered inside a full-bleed shell. The shell uses the same glass field as an edge fill on wider screens, so no page margins or artboard corners appear in the live experience.
-- Mobile is rendered on a fixed 390×900 reference canvas, scaled proportionally to fit the viewport and centered inside the same full-bleed shell; the stage is cropped inside a rounded container rather than allowed to collide with the CTA.
+- Desktop is rendered on a fixed 1440×900 reference canvas, scaled proportionally to fit the viewport and centered inside a full-bleed shell. The glass field belongs to the desktop composition itself; the shell does not add a second image layer.
+- Mobile is rendered on a fixed 390×900 reference canvas, scaled proportionally to fit the viewport and centered over the shell gradient; the glass field appears only inside the rounded visual stage rather than behind the page.
 - The mobile menu is keyboard-operable and exposes its expanded state. Reduced-motion users receive the same static composition without transitions.
 
 ## Assets
@@ -32,4 +32,4 @@ Desktop uses the approved 1440×900 canvas as a centered proposition over a full
 
 ## Intentional detector findings
 
-The detector flags Inter as common, a grid overlay, and a colored mobile edge. These are intentional constraints inherited from the approved Figma direction: Inter is limited to metadata, the grid is the Orbit field's measuring surface, and the edge is the mobile brand signal.
+The detector flags Inter as common and a grid overlay. These are intentional constraints inherited from the approved Figma direction: Inter is limited to metadata and the grid is the Orbit field's measuring surface.

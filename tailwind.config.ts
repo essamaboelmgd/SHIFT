@@ -14,7 +14,7 @@ export default {
         },
       },
       fontFamily: {
-        arabic: ['"IBM Plex Sans Arabic"', 'Arial', 'sans-serif'],
+        arabic: ['"Noto Sans Arabic"', 'Arial', 'sans-serif'],
         sans: ['Inter', 'Arial', 'sans-serif'],
       },
     },

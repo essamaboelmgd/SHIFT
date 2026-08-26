@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const navItems = [
   { label: 'أعمالنا', href: '#work' },
@@ -31,31 +31,6 @@ function scrollToTarget(href: string, close?: () => void) {
 
 export default function ShiftHero() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const heroRef = useRef<HTMLElement>(null)
-
-  useLayoutEffect(() => {
-    const hero = heroRef.current
-    if (!hero) return
-
-    const updateCanvasScale = () => {
-      const isMobile = window.matchMedia('(max-width: 767px)').matches
-      const referenceWidth = isMobile ? 390 : 1440
-      const scale = Math.min(hero.clientWidth / referenceWidth, hero.clientHeight / 900)
-      hero.style.setProperty('--canvas-scale', String(Math.max(scale, 0.1)))
-      hero.style.setProperty('--canvas-width', `${referenceWidth * scale}px`)
-      hero.style.setProperty('--canvas-height', `${900 * scale}px`)
-    }
-
-    updateCanvasScale()
-    const observer = new ResizeObserver(updateCanvasScale)
-    observer.observe(hero)
-    window.addEventListener('resize', updateCanvasScale)
-
-    return () => {
-      observer.disconnect()
-      window.removeEventListener('resize', updateCanvasScale)
-    }
-  }, [])
 
   useEffect(() => {
     document.body.classList.toggle('menu-is-open', menuOpen)
@@ -63,7 +38,7 @@ export default function ShiftHero() {
   }, [menuOpen])
 
   return (
-    <main ref={heroRef} className="shift-hero" id="top" aria-labelledby="hero-title">
+    <main className="shift-hero" id="top" aria-labelledby="hero-title">
       <div className="shift-hero__canvas">
         <img
           className="shift-hero__asset shift-hero__asset--desktop"
@@ -106,7 +81,6 @@ export default function ShiftHero() {
           </nav>
 
           <div className="desktop-nav__brand">
-            <span>CREATIVE SOLUTIONS</span>
             <a href="#top" aria-label="العودة إلى الصفحة الرئيسية">
               <Wordmark variant="desktop" />
             </a>
@@ -149,12 +123,15 @@ export default function ShiftHero() {
         </div>
 
         <section className="hero-copy">
-          <p className="hero-copy__eyebrow">للشركات اللي كبرت عن موقعها الحالي</p>
-          <h1 id="hero-title">
+          <p className="hero-copy__eyebrow">لأعمال وصلت لمرحلة أكبر من موقعها الحالي</p>
+          <h1 id="hero-title" dir="auto">
             <span>موقعك لازم</span>
-            <span className="hero-copy__accent">يواكب نمو شغلك.</span>
+            <span className="hero-copy__headline-line">
+              <span className="hero-copy__lead">يواكب</span>
+              <span className="hero-copy__accent"> نمو أعمالك.</span>
+            </span>
           </h1>
-          <p className="hero-copy__support">نصمّم ونبني مواقع تخلي حضورك مناسب للمرحلة اللي وصلت لها.</p>
+          <p className="hero-copy__support">نصمم ونبني مواقع وحلول ويب تعكس مستوى أعمالك اليوم،<br className="mobile-only-break" /> وتدعم نموّك في المرحلة الجاية.</p>
 
           <div className="hero-copy__actions">
             <a className="primary-action" href="#contact" onClick={(event) => { event.preventDefault(); scrollToTarget('#contact') }}>
@@ -162,7 +139,7 @@ export default function ShiftHero() {
               <SignalArrow variant="mobile" />
             </a>
             <a className="secondary-action" href="#work" onClick={(event) => { event.preventDefault(); scrollToTarget('#work') }}>
-              شوف شغلنا
+              شوف أعمالنا
               <span aria-hidden="true">→</span>
             </a>
           </div>
@@ -173,13 +150,12 @@ export default function ShiftHero() {
         <div className="mobile-visual-stage" aria-hidden="true">
           <img src="/assets/shift-glass-field.png" alt="" />
           <div className="mobile-visual-stage__fade" />
-          <span className="mobile-visual-stage__accent" />
         </div>
 
         <div className="next-stage-bridge" id="next-stage">
           <span id="contact" className="anchor-target" aria-hidden="true" />
           <span className="next-stage-bridge__meta">01&nbsp; / &nbsp;NEXT STAGE</span>
-          <p>المرحلة الجاية تبدأ من واجهتك.</p>
+          <p>كل مرحلة نمو تحتاج حضورًا يواكبها.</p>
           <span className="next-stage-bridge__arrow" aria-hidden="true">
             <img src="/assets/mobile-bridge-arrow.svg" alt="" />
             <span>↗</span>
@@ -191,7 +167,7 @@ export default function ShiftHero() {
           <a className="hero-footer__scroll" href="#next-stage" onClick={(event) => { event.preventDefault(); scrollToTarget('#next-stage') }}>
             SCROLL TO MOVE <span aria-hidden="true">↓</span>
           </a>
-          <p className="hero-footer__line">كل نقلة مهمة تبدأ من الواجهة الصح.</p>
+          <p className="hero-footer__line">كل مرحلة نمو تحتاج حضورًا يواكبها.</p>
           <span className="hero-footer__rule" aria-hidden="true" />
         </footer>
       </div>
