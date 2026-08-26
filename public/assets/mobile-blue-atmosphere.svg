@@ -1,0 +1,12 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="270" height="250" viewBox="0 0 270 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Mobile / Blue Atmosphere" opacity="0.03" filter="url(#filter0_f_0_12)">
+<ellipse cx="135" cy="125" rx="85" ry="75" fill="#5B73FF" fill-opacity="0.08"/>
+</g>
+<defs>
+<filter id="filter0_f_0_12" x="0" y="0" width="270" height="250" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="25" result="effect1_foregroundBlur_0_12"/>
+</filter>
+</defs>
+</svg>
