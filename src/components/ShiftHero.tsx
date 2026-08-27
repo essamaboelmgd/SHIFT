@@ -31,14 +31,20 @@ function scrollToTarget(href: string, close?: () => void) {
 
 export default function ShiftHero() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [isReady, setIsReady] = useState(false)
 
   useEffect(() => {
     document.body.classList.toggle('menu-is-open', menuOpen)
     return () => document.body.classList.remove('menu-is-open')
   }, [menuOpen])
 
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => setIsReady(true))
+    return () => window.cancelAnimationFrame(frame)
+  }, [])
+
   return (
-    <main className="shift-hero" id="top" aria-labelledby="hero-title">
+    <main className={`shift-hero${isReady ? ' is-ready' : ''}`} id="top" aria-labelledby="hero-title">
       <div className="shift-hero__canvas">
         <img
           className="shift-hero__asset shift-hero__asset--desktop"
@@ -164,7 +170,7 @@ export default function ShiftHero() {
 
         <footer className="hero-footer">
           <span className="hero-footer__capabilities">STRATEGY&nbsp;&nbsp; / &nbsp;&nbsp;DESIGN&nbsp;&nbsp; / &nbsp;&nbsp;BUILD</span>
-          <a className="hero-footer__scroll" href="#next-stage" onClick={(event) => { event.preventDefault(); scrollToTarget('#next-stage') }}>
+          <a className="hero-footer__scroll" href="#the-shift" onClick={(event) => { event.preventDefault(); scrollToTarget('#the-shift') }}>
             SCROLL TO MOVE <span aria-hidden="true">↓</span>
           </a>
           <p className="hero-footer__line">كل مرحلة نمو تحتاج حضورًا يواكبها.</p>
