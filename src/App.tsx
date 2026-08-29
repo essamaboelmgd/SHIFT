@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import ShiftHero from './components/ShiftHero'
 import PremiumSignalSection from './components/PremiumSignalSection'
+import ProcessSection from './components/ProcessSection'
 
 export default function App() {
   useEffect(() => {
@@ -38,6 +39,7 @@ export default function App() {
     <div className="site-shell">
       <ShiftHero />
       <PremiumSignalSection />
+      <ProcessSection />
     </div>
   )
 }
