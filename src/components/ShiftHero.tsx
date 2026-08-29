@@ -142,7 +142,7 @@ export default function ShiftHero() {
           <div className="hero-copy__actions">
             <a className="primary-action" href="#contact" onClick={(event) => { event.preventDefault(); scrollToTarget('#contact') }}>
               ابدأ مشروعك
-              <SignalArrow variant="mobile" />
+              <SignalArrow />
             </a>
             <a className="secondary-action" href="#work" onClick={(event) => { event.preventDefault(); scrollToTarget('#work') }}>
               شوف أعمالنا

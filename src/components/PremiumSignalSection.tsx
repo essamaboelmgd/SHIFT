@@ -27,12 +27,12 @@ function SignalVisual({ variant }: { variant: 'desktop' | 'mobile' }) {
         alt=""
         aria-hidden="true"
       />
-      <img
+      {/* <img
         className="premium-signal__orbit premium-signal__orbit--signal"
         src={isMobile ? '/assets/shift-premium-orbit-signal-mobile.svg' : '/assets/shift-premium-orbit-signal.svg'}
         alt=""
         aria-hidden="true"
-      />
+      /> */}
       {!isMobile && (
         <img
           className="premium-signal__orbit premium-signal__orbit--secondary"
@@ -94,6 +94,9 @@ export default function PremiumSignalSection() {
     >
       <div className="premium-signal__canvas">
         <div className="premium-signal__grid" aria-hidden="true" />
+        <div className="premium-signal__atmosphere premium-signal__atmosphere--mobile" aria-hidden="true">
+          <img src="/assets/premium-mobile-orange-atmosphere.svg" alt="" />
+        </div>
 
         <p className="premium-signal__meta premium-signal__meta--section" dir="ltr">
           02 / THE SHIFT
@@ -149,7 +152,6 @@ export default function PremiumSignalSection() {
           ))}
         </div>
 
-        <p className="premium-signal__footer-cue" dir="ltr">SCROLL TO SHIFT</p>
       </div>
     </section>
   )

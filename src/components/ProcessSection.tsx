@@ -67,9 +67,10 @@ function RouteSignature() {
         <RouteMarker placement="panel" variant="desktop" className="process-route-signature__marker process-route-signature__marker--two" />
         <RouteMarker placement="panel" variant="desktop" muted className="process-route-signature__marker process-route-signature__marker--three" />
       </div>
-      <span className="process-route-signature__legend process-route-signature__legend--one" dir="ltr">CLARITY</span>
-      <span className="process-route-signature__legend process-route-signature__legend--two" dir="ltr">FORM</span>
-      <span className="process-route-signature__legend process-route-signature__legend--three" dir="ltr">MOMENTUM</span>
+      <span className="process-route-signature__legend process-route-signature__legend--one process-route-signature__legend--desktop" dir="ltr">CLARITY</span>
+      <span className="process-route-signature__legend process-route-signature__legend--two process-route-signature__legend--desktop" dir="ltr">FORM</span>
+      <span className="process-route-signature__legend process-route-signature__legend--three process-route-signature__legend--desktop" dir="ltr">MOMENTUM</span>
+      <span className="process-route-signature__legend--mobile" dir="ltr">CLARITY&nbsp;&nbsp;&nbsp; / &nbsp;&nbsp;&nbsp;FORM&nbsp;&nbsp;&nbsp; / &nbsp;&nbsp;&nbsp;MOMENTUM</span>
     </div>
   )
 }
@@ -142,11 +143,14 @@ export default function ProcessSection() {
       <div className="process-section__canvas">
         <div className="process-section__grid" aria-hidden="true" />
         <div className="process-section__atmosphere process-section__atmosphere--desktop" aria-hidden="true">
-          <img src="/assets/desktop-orange-atmosphere.svg" alt="" />
+          <img src="/assets/process-orange-atmosphere.svg" alt="" />
         </div>
 
         <p className="process-section__meta process-section__meta--section" dir="ltr">03 / PROCESS</p>
-        <p className="process-section__meta process-section__meta--context" dir="ltr">THE SHIFT&nbsp; / &nbsp;NEXT</p>
+        <p className="process-section__meta process-section__meta--context" dir="ltr">
+          <span className="process-section__meta--context-desktop">THE SHIFT&nbsp; / &nbsp;NEXT</span>
+          <span className="process-section__meta--context-mobile">THE SHIFT</span>
+        </p>
 
         <div className="process-section__copy">
           <p className="process-section__eyebrow">هنا يبدأ الـ SHIFT</p>
@@ -159,7 +163,8 @@ export default function ProcessSection() {
 
         <RouteSignature />
 
-        <p className="process-section__route-label" dir="ltr">THE THREE MOVES</p>
+        <p className="process-section__route-label process-section__route-label--desktop" dir="ltr">THE THREE MOVES</p>
+        <p className="process-section__route-label process-section__route-label--mobile" dir="ltr">THE THREE MOVES&nbsp; / &nbsp;ONE WAY</p>
         <p className="process-section__route-promise" dir="ltr">A CLEARER WAY FORWARD</p>
         <RouteBoard />
 
