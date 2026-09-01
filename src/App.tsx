@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import ShiftHero from './components/ShiftHero'
-import PremiumSignalSection from './components/PremiumSignalSection'
+import TheShiftSection from './components/TheShiftSection'
 import ProcessSection from './components/ProcessSection'
 
 export default function App() {
@@ -15,7 +15,6 @@ export default function App() {
       const progress = Math.min(1, Math.max(0, window.scrollY / Math.max(heroHeight, 1)))
 
       root.style.setProperty('--shift-hero-drift', `${(-progress * 3.2).toFixed(3)}vh`)
-      root.style.setProperty('--premium-signal-drift', `${((1 - progress) * 2.4).toFixed(3)}vh`)
     }
 
     const scheduleScrollScene = () => {
@@ -31,14 +30,13 @@ export default function App() {
       window.removeEventListener('resize', scheduleScrollScene)
       if (frame) window.cancelAnimationFrame(frame)
       root.style.removeProperty('--shift-hero-drift')
-      root.style.removeProperty('--premium-signal-drift')
     }
   }, [])
 
   return (
     <div className="site-shell">
       <ShiftHero />
-      <PremiumSignalSection />
+      <TheShiftSection />
       <ProcessSection />
     </div>
   )

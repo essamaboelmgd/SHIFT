@@ -14,7 +14,9 @@ export default {
         },
       },
       fontFamily: {
-        arabic: ['"Noto Sans Arabic"', 'Arial', 'sans-serif'],
+        display: ['Satoshi', 'Inter', 'Arial', 'sans-serif'],
+        body: ['Inter', 'Arial', 'sans-serif'],
+        arabic: ['"IBM Plex Sans Arabic"', 'Arial', 'sans-serif'],
         sans: ['Inter', 'Arial', 'sans-serif'],
       },
     },

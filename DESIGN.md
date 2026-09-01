@@ -9,7 +9,7 @@ Arabic-first persuasive landing-page hero for SHIFT Creative Solutions. The impl
 - Near-black field: `#0A0A0A` with a warm-black right drift.
 - Signal orange: `#FE5E0E`, reserved for action, directional accents, and the visual field.
 - Warm paper type: `#F7F4EF`; muted copy: `#9B938A`; hairlines: `#3A302B`.
-- Noto Sans Arabic carries the Arabic proposition. Inter handles the small English metadata and navigation descriptor.
+- IBM Plex Sans Arabic carries all Arabic copy. Satoshi carries English display headings, while Inter handles English body copy, metadata, and navigation descriptors.
 - The real glass-field image is the visual mechanism, not a decorative placeholder: it makes movement and next-stage progress tangible.
 
 ## Composition

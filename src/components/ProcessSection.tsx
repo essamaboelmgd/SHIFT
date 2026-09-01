@@ -88,6 +88,9 @@ function RouteBoard() {
         <span className="process-route-board__number process-route-board__number--three">03</span>
       </div>
 
+      <span className="process-route-board__divider process-route-board__divider--one" aria-hidden="true" />
+      <span className="process-route-board__divider process-route-board__divider--two" aria-hidden="true" />
+
       <div className="process-route-board__rows" role="list">
         {processStages.map((stage) => (
           <article
@@ -142,6 +145,8 @@ export default function ProcessSection() {
     >
       <div className="process-section__canvas">
         <div className="process-section__grid" aria-hidden="true" />
+        <div className="process-section__glow process-section__glow--orange" aria-hidden="true" />
+        <div className="process-section__glow process-section__glow--warm" aria-hidden="true" />
         <div className="process-section__atmosphere process-section__atmosphere--desktop" aria-hidden="true">
           <img src="/assets/process-orange-atmosphere.svg" alt="" />
         </div>
@@ -153,7 +158,7 @@ export default function ProcessSection() {
         </p>
 
         <div className="process-section__copy">
-          <p className="process-section__eyebrow">هنا يبدأ الـ SHIFT</p>
+          <p className="process-section__eyebrow"><span className="process-section__eyebrow-dot" />هنا يبدأ الـ SHIFT</p>
           <h2 id="process-title" className="process-section__headline">
             <span>مش بنبني موقع وخلاص.</span>
             <span className="process-section__headline-accent">بنرتّب الخطوة الجاية.</span>

@@ -1,0 +1,137 @@
+{
+  "/home/essam/work/SHIFT/Website/frontend-test/package.json": {
+    "mtime": 1787679120.7950659,
+    "ast_hash": "9ae5632e96ce91e279ff1fbd5f5a77c1",
+    "semantic_hash": "9ae5632e96ce91e279ff1fbd5f5a77c1"
+  },
+  "/home/essam/work/SHIFT/Website/frontend-test/vite.config.ts": {
+    "mtime": 1787679120.922067,
+    "ast_hash": "9bf09b6d97edba4eebf0fe93baaad662",
+    "semantic_hash": "9bf09b6d97edba4eebf0fe93baaad662"
+  },
+  "/home/essam/work/SHIFT/Website/frontend-test/postcss.config.js": {
+    "mtime": 1787679121.049068,
+    "ast_hash": "ef3ba2a81ba19f8ea5ddf625521e96f0",
+    "semantic_hash": "ef3ba2a81ba19f8ea5ddf625521e96f0"
+  },
+  "/home/essam/work/SHIFT/Website/frontend-test/tailwind.config.ts": {
+    "mtime": 1787740297.582157,
+    "ast_hash": "c451da1673718698f8f845aa932a6630",
+    "semantic_hash": "c451da1673718698f8f845aa932a6630"
+  },
+  "/home/essam/work/SHIFT/Website/frontend-test/tsconfig.json": {
+    "mtime": 1787679121.3400702,
+    "ast_hash": "a3d39fa780ebff65444de257f291ce6c",
+    "semantic_hash": "a3d39fa780ebff65444de257f291ce6c"
+  },
+  "/home/essam/work/SHIFT/Website/frontend-test/tsconfig.app.json": {
+    "mtime": 1787679121.6360726,
+    "ast_hash": "7957ffa0d1233af14591980075289080",
+    "semantic_hash": "7957ffa0d1233af14591980075289080"
+  },
+  "/home/essam/work/SHIFT/Website/frontend-test/tsconfig.node.json": {
+    "mtime": 1787680071.7216973,
+    "ast_hash": "6a944b436ebf847d842c4f13d8261ce1",
+    "semantic_hash": "6a944b436ebf847d842c4f13d8261ce1"
+  },
+  "/home/essam/work/SHIFT/Website/frontend-test/.graphify_detect.json": {
+    "mtime": 1787834159.3349178,
+    "ast_hash": "e3ed2e138c72537cddf63fedd78ea882",
+    "semantic_hash": "e3ed2e138c72537cddf63fedd78ea882"
+  },
+  "/home/essam/work/SHIFT/Website/frontend-test/src/main.tsx": {
+    "mtime": 1787679122.54808,
+    "ast_hash": "751d36d1e0ffd615ea678b3b7a1df616",
+    "semantic_hash": "751d36d1e0ffd615ea678b3b7a1df616"
+  },
+  "/home/essam/work/SHIFT/Website/frontend-test/src/App.tsx": {
+    "mtime": 1787836398.1613343,
+    "ast_hash": "84e22277f7c3892608141a8409c932e8",
+    "semantic_hash": "84e22277f7c3892608141a8409c932e8"
+  },
+  "/home/essam/work/SHIFT/Website/frontend-test/src/components/ShiftHero.tsx": {
+    "mtime": 1787743765.487394,
+    "ast_hash": "16b26c40f09ef1d47aad4d594bde1775",
+    "semantic_hash": "16b26c40f09ef1d47aad4d594bde1775"
+  },
+  "/home/essam/work/SHIFT/Website/frontend-test/index.html": {
+    "mtime": 1787745346.0686243,
+    "ast_hash": "fe9b324a56ea16c43bb7db5df76e12b6",
+    "semantic_hash": "fe9b324a56ea16c43bb7db5df76e12b6"
+  },
+  "/home/essam/work/SHIFT/Website/frontend-test/PRODUCT.md": {
+    "mtime": 1787740297.4121554,
+    "ast_hash": "48ada7b7157f80b35ebf2050b5d99044",
+    "semantic_hash": "48ada7b7157f80b35ebf2050b5d99044"
+  },
+  "/home/essam/work/SHIFT/Website/frontend-test/DESIGN.md": {
+    "mtime": 1787740297.2082963,
+    "ast_hash": "69fde8c341976a15f8ec9ea2e75a8d4e",
+    "semantic_hash": "69fde8c341976a15f8ec9ea2e75a8d4e"
+  },
+  "/home/essam/work/SHIFT/Website/frontend-test/public/favicon.svg": {
+    "mtime": 1787678790.1574123,
+    "ast_hash": "4272336652169a9ac969513e73f3edaa",
+    "semantic_hash": "4272336652169a9ac969513e73f3edaa"
+  },
+  "/home/essam/work/SHIFT/Website/frontend-test/public/logo/wordmark-white.png": {
+    "mtime": 1787678790.1542296,
+    "ast_hash": "9488f517df0d091347e4cd88421bb3d3",
+    "semantic_hash": "9488f517df0d091347e4cd88421bb3d3"
+  },
+  "/home/essam/work/SHIFT/Website/frontend-test/public/assets/shift-glass-field.png": {
+    "mtime": 1787678790.1624799,
+    "ast_hash": "fed3f75408d7aeeb5e2d77ab15c0a601",
+    "semantic_hash": "fed3f75408d7aeeb5e2d77ab15c0a601"
+  },
+  "/home/essam/work/SHIFT/Website/frontend-test/public/assets/desktop-orange-atmosphere.svg": {
+    "mtime": 1787683696.2391107,
+    "ast_hash": "510794ba1e6a6daaeb2224878d763251",
+    "semantic_hash": "510794ba1e6a6daaeb2224878d763251"
+  },
+  "/home/essam/work/SHIFT/Website/frontend-test/public/assets/desktop-blue-atmosphere.svg": {
+    "mtime": 1787683697.540527,
+    "ast_hash": "753de57a8ba9e6c52c9bc343896e8008",
+    "semantic_hash": "753de57a8ba9e6c52c9bc343896e8008"
+  },
+  "/home/essam/work/SHIFT/Website/frontend-test/public/assets/mobile-orange-atmosphere.svg": {
+    "mtime": 1787683697.8745518,
+    "ast_hash": "57bffd0abc66953319421e238248166a",
+    "semantic_hash": "57bffd0abc66953319421e238248166a"
+  },
+  "/home/essam/work/SHIFT/Website/frontend-test/public/assets/orange-dot.svg": {
+    "mtime": 1787683697.9008145,
+    "ast_hash": "79f87f5145ed4c2765b90739bb1a33ec",
+    "semantic_hash": "79f87f5145ed4c2765b90739bb1a33ec"
+  },
+  "/home/essam/work/SHIFT/Website/frontend-test/public/assets/mobile-blue-atmosphere.svg": {
+    "mtime": 1787683698.0261424,
+    "ast_hash": "2fa62896bb7b45a0d4e5a8d5874dbdfe",
+    "semantic_hash": "2fa62896bb7b45a0d4e5a8d5874dbdfe"
+  },
+  "/home/essam/work/SHIFT/Website/frontend-test/public/assets/mobile-bridge-arrow.svg": {
+    "mtime": 1787683698.1051207,
+    "ast_hash": "6ba395f068eef8cbfaddef1585532513",
+    "semantic_hash": "6ba395f068eef8cbfaddef1585532513"
+  },
+  "/home/essam/work/SHIFT/Website/frontend-test/public/assets/mobile-menu.svg": {
+    "mtime": 1787683698.3336477,
+    "ast_hash": "6f50479f4e0a7e9ad2f9214f889f3ab5",
+    "semantic_hash": "6f50479f4e0a7e9ad2f9214f889f3ab5"
+  },
+  "/home/essam/work/SHIFT/Website/frontend-test/public/assets/primary-arrow.svg": {
+    "mtime": 1787683698.3742645,
+    "ast_hash": "ae5650e5376e06eef7717e441335ebe9",
+    "semantic_hash": "ae5650e5376e06eef7717e441335ebe9"
+  },
+  "/home/essam/work/SHIFT/Website/frontend-test/public/assets/desktop-warm-atmosphere.svg": {
+    "mtime": 1787683698.4782357,
+    "ast_hash": "37f8b7725dad3d7af0de395ad6ccad77",
+    "semantic_hash": "37f8b7725dad3d7af0de395ad6ccad77"
+  },
+  "/home/essam/work/SHIFT/Website/frontend-test/public/assets/mobile-primary-arrow.svg": {
+    "mtime": 1787683699.9669058,
+    "ast_hash": "ae5650e5376e06eef7717e441335ebe9",
+    "semantic_hash": "ae5650e5376e06eef7717e441335ebe9"
+  }
+}

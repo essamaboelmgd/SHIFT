@@ -32,7 +32,7 @@ The current public focus is websites and web solutions. Mobile apps, marketing, 
 
 ## Brand Commitments
 
-Name: SHIFT. Umbrella direction: SHIFT Creative Solutions. Near black #0A0A0A, SHIFT Orange #FE5E0E, warm white type, Noto Sans Arabic for Arabic copy, Inter for English metadata. The supplied SHIFT wordmark and favicon are authoritative assets.
+Name: SHIFT. Umbrella direction: SHIFT Creative Solutions. Near black #0A0A0A, SHIFT Orange #FE5E0E, warm white type, IBM Plex Sans Arabic for Arabic copy, Satoshi for English headings, and Inter for English body/meta. The supplied SHIFT wordmark and favicon are authoritative assets.
 
 ## Evidence on Hand
 
