@@ -5,44 +5,44 @@ const buildOptions = [
     number: '01',
     slug: 'landing',
     english: 'LANDING',
-    result: 'حركة أسرع',
+    result: 'خطوة أسرع',
     title: 'عرضك يوصل من أول لحظة.',
-    fit: 'عندك عرض واضح وعايز الناس تفهمه وتتحرك بسرعة.',
-    outcome: 'صفحة مركزة تخلي الخطوة الجاية أسهل.',
-    pricing: 'التسعير حسب نطاق الصفحة ومرحلة الإطلاق.',
+    fit: 'عندك عرض واضح وعايز الناس تفهمه وتعرف تعمل الخطوة الجاية بسرعة.',
+    outcome: 'صفحة مركزة توصل الرسالة وتحوّل الاهتمام لتحرك واضح.',
+    pricing: 'التسعير بيتحدد حسب نطاق الصفحة ومتطلبات المشروع.',
     kind: 'core',
   },
   {
     number: '02',
     slug: 'business',
     english: 'BUSINESS',
-    result: 'حضور أثبت',
+    result: 'حضور أقوى',
     title: 'شغلك ياخد مكانه الطبيعي.',
     fit: 'البيزنس كبر وموقعك لسه مش بيحكي مستوى شغلك.',
     outcome: 'حضور يبني ثقة ويخلّي قرار التواصل أسهل.',
-    pricing: 'التسعير حسب المرحلة وعدد الصفحات المطلوبة.',
+    pricing: 'التسعير بيتحدد حسب نطاق الموقع ومتطلبات المشروع.',
     kind: 'core',
   },
   {
     number: '03',
     slug: 'commerce',
     english: 'COMMERCE',
-    result: 'بيع أوضح',
+    result: 'شراء أوضح',
     title: 'الشراء يبقى أسهل.',
-    fit: 'عندك منتجات والعميل محتاج طريق أوضح للشراء.',
-    outcome: 'تجربة تخلي الاختيار والشراء يكملوا من غير لخبطة.',
-    pricing: 'التسعير حسب حجم المتجر ومتطلبات الشراء.',
+    fit: 'عندك منتجات والعميل محتاج طريق أوضح من الاختيار لحد الشراء.',
+    outcome: 'تجربة تقلل الاحتكاك وتسهّل على العميل يكمل عملية الشراء.',
+    pricing: 'التسعير بيتحدد حسب حجم المتجر ومتطلبات المشروع.',
     kind: 'core',
   },
   {
     number: '04',
     slug: 'learning',
     english: 'LEARNING',
-    result: 'تجربة تعليم',
+    result: 'تعلم أوضح',
     title: 'خبرتك تتحول لتجربة.',
-    fit: 'بتبيع معرفة أو بتدير محتوى تعليمي.',
-    outcome: 'رحلة منظمة تخلي قيمتك أسهل في المتابعة.',
-    pricing: 'التسعير حسب حجم المحتوى ورحلة التعلم.',
+    fit: 'بتبيع معرفة أو بتدير محتوى تعليمي وعايز تقدمه بشكل منظم.',
+    outcome: 'تجربة ترتب المحتوى وتسهّل على المتعلم الوصول والمتابعة.',
+    pricing: 'التسعير بيتحدد حسب حجم المحتوى ومتطلبات المنصة.',
     kind: 'core',
   },
   {
@@ -53,7 +53,7 @@ const buildOptions = [
     title: 'اسمك يسبقك.',
     fit: 'شغلك قائم على خبرتك أو أعمالك.',
     outcome: 'واجهة تجمع شغلك وتحول الانطباع الأول لفرصة.',
-    pricing: 'التسعير حسب حجم الأعمال وطريقة العرض.',
+    pricing: 'التسعير بيتحدد حسب حجم المحتوى وطريقة العرض.',
     kind: 'core',
   },
   {
@@ -63,8 +63,8 @@ const buildOptions = [
     result: 'على مقاسك',
     title: 'حل يتبني حول طريقتك.',
     fit: 'شغلك محتاج منطق خاص، مش قالب جاهز.',
-    outcome: 'تجربة مصممة على طريقة شغلك الحقيقية.',
-    pricing: 'التسعير حسب المرحلة والمتطلبات الخاصة.',
+    outcome: 'حل ويب مبني على طريقة شغلك ومتطلباتك الفعلية.',
+    pricing: 'التسعير بيتحدد حسب نطاق الحل ومتطلباته.',
     kind: 'custom',
   },
 ] as const
@@ -149,14 +149,24 @@ export default function WhatWeBuildSection() {
         </header>
 
         <div className="what-build__lede" dir="rtl">
-          <h2 id="what-build-title" className="what-build__headline">
-            مش كل بيزنس
-            <br />
-            محتاج نفس الموقع.
-          </h2>
-          <p className="what-build__body">
-            الحل الصح يبدأ من المرحلة اللي شغلك فيها، مش من قالب جاهز.
-          </p>
+          <div className="what-build__lede-copy">
+            <h2 id="what-build-title" className="what-build__headline">
+              مش كل بيزنس
+              <br />
+              محتاج نفس الموقع.
+            </h2>
+            <p className="what-build__body">
+              الحل الصح يبدأ من المرحلة اللي شغلك فيها، مش من قالب جاهز.
+            </p>
+          </div>
+          <div className="what-build__lede-visual" aria-hidden="true">
+            <svg viewBox="0 0 520 250" role="presentation">
+              <path className="what-build__lede-orbit" d="M44 200C128 36 332 18 482 132" />
+              <path className="what-build__lede-orbit what-build__lede-orbit--accent" d="M40 202C156 198 278 124 474 126" />
+              <circle className="what-build__lede-node" cx="44" cy="200" r="5" />
+              <circle className="what-build__lede-node what-build__lede-node--active" cx="474" cy="126" r="7" />
+            </svg>
+          </div>
         </div>
 
         <div className="what-build__explorer" dir="rtl">
@@ -168,6 +178,15 @@ export default function WhatWeBuildSection() {
             aria-labelledby={activeTabId}
             aria-live="polite"
           >
+            <div className="what-build__detail-signal" aria-hidden="true">
+              <svg viewBox="0 0 620 300" role="presentation">
+                <path className="what-build__detail-signal-orbit" d="M-24 254C108 42 382 20 646 154" />
+                <path className="what-build__detail-signal-route" d="M-18 264C124 286 218 164 318 188S506 258 646 92" />
+                <circle className="what-build__detail-signal-node" cx="32" cy="264" r="6" />
+                <circle className="what-build__detail-signal-node" cx="318" cy="188" r="6" />
+                <circle className="what-build__detail-signal-node what-build__detail-signal-node--active" cx="646" cy="92" r="8" />
+              </svg>
+            </div>
             <div className="what-build__detail-meta" dir="ltr">
               <span>{activeOption.number} / {activeOption.english}</span>
               <span className="what-build__detail-status">
@@ -192,7 +211,11 @@ export default function WhatWeBuildSection() {
               <p className="what-build__detail-pricing">{activeOption.pricing}</p>
               <a className="what-build__detail-cta" href="#contact">
                 خلّينا نحدد البداية
-                <span aria-hidden="true">↗</span>
+                <span aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="presentation">
+                    <path d="M5 19 19 5M9 5h10v10" />
+                  </svg>
+                </span>
               </a>
             </div>
           </article>
