@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 const navItems = [
   { label: 'أعمالنا', href: '#work' },
   { label: 'خدماتنا', href: '#services' },
-  { label: 'آلية العمل', href: '#process' },
+  { label: 'طريقتنا', href: '#process' },
   { label: 'عنّا', href: '#about' },
 ]
 
@@ -137,7 +137,7 @@ export default function ShiftHero() {
               <span className="hero-copy__accent"> نمو أعمالك.</span>
             </span>
           </h1>
-          <p className="hero-copy__support">نصمم ونبني مواقع وحلول ويب تعكس مستوى أعمالك اليوم،<br className="mobile-only-break" /> وتدعم نموّك في المرحلة الجاية.</p>
+          <p className="hero-copy__support">نصمم ونبني حلول ويب تليق بالمرحلة اللي وصل لها شغلك،<br className="mobile-only-break" /> وتساعده يتحرك للمرحلة الجاية.</p>
 
           <div className="hero-copy__actions">
             <a className="primary-action" href="#contact" onClick={(event) => { event.preventDefault(); scrollToTarget('#contact') }}>
@@ -171,7 +171,7 @@ export default function ShiftHero() {
         <footer className="hero-footer">
           <span className="hero-footer__capabilities">STRATEGY&nbsp;&nbsp; / &nbsp;&nbsp;DESIGN&nbsp;&nbsp; / &nbsp;&nbsp;BUILD</span>
           <a className="hero-footer__scroll" href="#the-shift" onClick={(event) => { event.preventDefault(); scrollToTarget('#the-shift') }}>
-            SCROLL TO MOVE <span aria-hidden="true">↓</span>
+            SCROLL TO SHIFT <span aria-hidden="true">↓</span>
           </a>
           <p className="hero-footer__line">كل مرحلة نمو تحتاج حضورًا يواكبها.</p>
           <span className="hero-footer__rule" aria-hidden="true" />

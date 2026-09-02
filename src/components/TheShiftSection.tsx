@@ -11,8 +11,8 @@ const mobileAtmosphere = '/assets/premium-mobile-orange-atmosphere.svg'
 
 const capabilityStages = [
   { key: 'clarity', label: '01 / CLARITY', title: 'وضوح يخلي قيمتك تتشاف' },
-  { key: 'presence', label: '02 / PRESENCE', title: 'حضور يليق بالمرحلة' },
-  { key: 'momentum', label: '03 / MOMENTUM', title: 'خطوة أسهل للعميل' },
+  { key: 'presence', label: '02 / PRESENCE', title: 'حضور يليق بالمرحلة اللي وصلت لها' },
+  { key: 'momentum', label: '03 / MOMENTUM', title: 'تجربة تسهّل على العميل الخطوة الجاية' },
 ] as const
 
 function StageMarker({ kind }: { kind: 'current' | 'next' }) {
@@ -58,13 +58,13 @@ export default function TheShiftSection() {
       <div className="shift-signal__grid" aria-hidden="true" />
       <div className="shift-signal__glow shift-signal__glow--orange" aria-hidden="true" />
       <div className="shift-signal__glow shift-signal__glow--warm" aria-hidden="true" />
-      <div className="shift-signal__watermark" aria-hidden="true">SHIFT</div>
+      {/*<div className="shift-signal__watermark" aria-hidden="true">SHIFT</div>*/}
       <div className="shift-signal__inner">
         <header className="shift-signal__topline">
           <p className="shift-signal__eyebrow" dir="ltr"><span className="shift-signal__eyebrow-dot" />02 / THE SHIFT</p>
           <p className="shift-signal__scroll" dir="ltr">
-            <span className="shift-signal__scroll-desktop">SCROLL TO SHIFT</span>
-            <span className="shift-signal__scroll-mobile">SCROLL / SHIFT</span>
+            <span className="shift-signal__scroll-desktop">NEXT STAGE ↓</span>
+            <span className="shift-signal__scroll-mobile">NEXT STAGE ↓</span>
           </p>
         </header>
 
@@ -86,7 +86,7 @@ export default function TheShiftSection() {
           <div className="shift-signal__artwork-slot">
             <span className="shift-signal__artwork-frame" aria-hidden="true" />
             <SignalArtwork />
-            <p className="shift-signal__signal-tag" dir="ltr">SIGNAL / 02</p>
+            {/*<p className="shift-signal__signal-tag" dir="ltr">SIGNAL / 02</p>*/}
             <p className="shift-signal__artwork-note" dir="ltr">A BETTER SIGNAL<br />FOR WHAT COMES NEXT</p>
           </div>
         </div>

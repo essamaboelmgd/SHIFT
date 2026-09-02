@@ -161,7 +161,7 @@ export default function ProcessSection() {
           <p className="process-section__eyebrow"><span className="process-section__eyebrow-dot" />هنا يبدأ الـ SHIFT</p>
           <h2 id="process-title" className="process-section__headline">
             <span>مش بنبني موقع وخلاص.</span>
-            <span className="process-section__headline-accent">بنرتّب الخطوة الجاية.</span>
+            <span className="process-section__headline-accent">بنرتب الخطوة الجاية.</span>
           </h2>
           <p className="process-section__body">من أول سؤال لحد أول زيارة، كل قرار له دور.</p>
         </div>

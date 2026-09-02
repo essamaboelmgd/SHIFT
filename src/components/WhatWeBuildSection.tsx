@@ -1,53 +1,118 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, type KeyboardEvent } from 'react'
 
 const buildOptions = [
   {
     number: '01',
     slug: 'landing',
     english: 'LANDING',
-    title: 'صفحة هبوط',
     result: 'حركة أسرع',
-    description: 'لما محتاج عرضك يتحرك بسرعة.',
+    title: 'عرضك يوصل من أول لحظة.',
+    fit: 'عندك عرض واضح وعايز الناس تفهمه وتتحرك بسرعة.',
+    outcome: 'صفحة مركزة تخلي الخطوة الجاية أسهل.',
+    pricing: 'التسعير حسب نطاق الصفحة ومرحلة الإطلاق.',
+    kind: 'core',
   },
   {
     number: '02',
     slug: 'business',
     english: 'BUSINESS',
-    title: 'موقع شركة',
     result: 'حضور أثبت',
-    description: 'لحضور يليق بمستوى شغلك.',
+    title: 'شغلك ياخد مكانه الطبيعي.',
+    fit: 'البيزنس كبر وموقعك لسه مش بيحكي مستوى شغلك.',
+    outcome: 'حضور يبني ثقة ويخلّي قرار التواصل أسهل.',
+    pricing: 'التسعير حسب المرحلة وعدد الصفحات المطلوبة.',
+    kind: 'core',
   },
   {
     number: '03',
     slug: 'commerce',
     english: 'COMMERCE',
-    title: 'متجر إلكتروني',
     result: 'بيع أوضح',
-    description: 'لتجربة شراء أوضح وأسهل.',
+    title: 'الشراء يبقى أسهل.',
+    fit: 'عندك منتجات والعميل محتاج طريق أوضح للشراء.',
+    outcome: 'تجربة تخلي الاختيار والشراء يكملوا من غير لخبطة.',
+    pricing: 'التسعير حسب حجم المتجر ومتطلبات الشراء.',
+    kind: 'core',
   },
   {
     number: '04',
     slug: 'learning',
     english: 'LEARNING',
-    title: 'منصة تعليم',
     result: 'تجربة تعليم',
-    description: 'لإدارة المحتوى والرحلة التعليمية.',
+    title: 'خبرتك تتحول لتجربة.',
+    fit: 'بتبيع معرفة أو بتدير محتوى تعليمي.',
+    outcome: 'رحلة منظمة تخلي قيمتك أسهل في المتابعة.',
+    pricing: 'التسعير حسب حجم المحتوى ورحلة التعلم.',
+    kind: 'core',
   },
   {
     number: '05',
+    slug: 'portfolio',
+    english: 'PORTFOLIO / PERSONAL BRAND',
+    result: 'حضور شخصي',
+    title: 'اسمك يسبقك.',
+    fit: 'شغلك قائم على خبرتك أو أعمالك.',
+    outcome: 'واجهة تجمع شغلك وتحول الانطباع الأول لفرصة.',
+    pricing: 'التسعير حسب حجم الأعمال وطريقة العرض.',
+    kind: 'core',
+  },
+  {
+    number: '06',
     slug: 'custom',
     english: 'CUSTOM',
-    title: 'حل مخصص',
     result: 'على مقاسك',
-    description: 'لما الحل يحتاج أكتر من قالب.',
+    title: 'حل يتبني حول طريقتك.',
+    fit: 'شغلك محتاج منطق خاص، مش قالب جاهز.',
+    outcome: 'تجربة مصممة على طريقة شغلك الحقيقية.',
+    pricing: 'التسعير حسب المرحلة والمتطلبات الخاصة.',
+    kind: 'custom',
   },
 ] as const
 
 export default function WhatWeBuildSection() {
   const sectionRef = useRef<HTMLElement>(null)
-  const [activeIndex, setActiveIndex] = useState(0)
+  const [activeSlug, setActiveSlug] = useState('business')
   const [hasEntered, setHasEntered] = useState(false)
-  const activeOption = buildOptions[activeIndex]
+  const activeOption = buildOptions.find((option) => option.slug === activeSlug) ?? buildOptions[1]
+  const activeTabId = `build-tab-${activeOption.slug}`
+  const handleTabKeyDown = (event: KeyboardEvent<HTMLButtonElement>, optionSlug: string) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault()
+      setActiveSlug(optionSlug)
+      return
+    }
+
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight' && event.key !== 'ArrowUp' && event.key !== 'ArrowDown') {
+      return
+    }
+
+    event.preventDefault()
+    const currentIndex = buildOptions.findIndex((option) => option.slug === optionSlug)
+    const direction = event.key === 'ArrowLeft' || event.key === 'ArrowUp' ? -1 : 1
+    const nextOption = buildOptions[(currentIndex + direction + buildOptions.length) % buildOptions.length]
+    setActiveSlug(nextOption.slug)
+  }
+  const renderTab = (option: (typeof buildOptions)[number]) => {
+    const isActive = option.slug === activeOption.slug
+
+    return (
+      <button
+        className={`what-build__selector-tab${isActive ? ' is-active' : ''}`}
+        key={option.slug}
+        type="button"
+        id={`build-tab-${option.slug}`}
+        role="tab"
+        aria-selected={isActive}
+        aria-controls="build-active-detail"
+        onClick={() => setActiveSlug(option.slug)}
+        onKeyDown={(event) => handleTabKeyDown(event, option.slug)}
+      >
+        <span className="what-build__selector-number" dir="ltr">{option.number}</span>
+        <span className="what-build__selector-english" dir="ltr">{option.english}</span>
+        <span className="what-build__selector-result">{option.result}</span>
+      </button>
+    )
+  }
 
   useEffect(() => {
     const section = sectionRef.current
@@ -76,119 +141,74 @@ export default function WhatWeBuildSection() {
       ref={sectionRef}
       className={`what-build${hasEntered ? ' is-visible' : ''}`}
       id="services"
-      data-active-index={activeIndex}
       aria-labelledby="what-build-title"
     >
       <div className="what-build__canvas">
-        <div className="what-build__grid" aria-hidden="true" />
-        <div className="what-build__glow what-build__glow--orange" aria-hidden="true" />
-        <div className="what-build__glow what-build__glow--blue" aria-hidden="true" />
-        <div className="what-build__watermark" aria-hidden="true">WEB</div>
-
         <header className="what-build__topline">
           <p className="what-build__meta what-build__meta--section" dir="ltr">03&nbsp; / &nbsp;WHAT WE BUILD</p>
-          <p className="what-build__meta" dir="ltr">WEB FIRST&nbsp; / &nbsp;NEXT STAGE</p>
         </header>
 
-        <div className="what-build__intro">
-          <div className="what-build__copy" dir="rtl">
-            <p className="what-build__eyebrow">الأساس اللي شغلك محتاجه دلوقتي</p>
-            <h2 id="what-build-title" className="what-build__headline">
-              مش كل بيزنس
-              <br />
-              محتاج نفس الموقع.
-            </h2>
-            <p className="what-build__body">
-              بنختار الحل المناسب لمرحلتك،
-              <br />
-              ونبنيه عشان يشتغل معاك.
-            </p>
-            <p className="what-build__direction" dir="ltr">WEB FIRST&nbsp; / &nbsp;BUILT FOR THE NEXT MOVE</p>
-          </div>
-
-          <div className="what-build__system" dir="rtl">
-            <div className="what-build__system-head">
-              <div className="what-build__system-head-meta">
-                <p dir="ltr">WEB FIRST</p>
-                <span dir="ltr">{activeOption.number} / ACTIVE MODE</span>
-              </div>
-              <h3>
-                موقع يشتغل
-                <br />
-                مع مرحلة شغلك.
-              </h3>
-            </div>
-
-            <div className="what-build__system-focus" id="build-active-detail" key={activeOption.slug} aria-live="polite">
-              <div className="what-build__system-focus-topline">
-                <span dir="ltr">{activeOption.number} / {activeOption.english}</span>
-                <span>{activeOption.result}</span>
-              </div>
-              <strong>{activeOption.title}</strong>
-              <p>{activeOption.description}</p>
-            </div>
-
-            <div className="what-build__system-rule" aria-hidden="true" />
-
-            <div className="what-build__stack" role="group" aria-label="اختيارات حلول الويب">
-              {buildOptions.map((option, index) => (
-                <button
-                  className={`what-build__stack-row${index === activeIndex ? ' is-active' : ''}`}
-                  key={option.slug}
-                  type="button"
-                  aria-pressed={index === activeIndex}
-                  aria-controls="build-active-detail"
-                  onClick={() => setActiveIndex(index)}
-                >
-                  <span className="what-build__stack-number" dir="ltr">{option.number}</span>
-                  <span className="what-build__stack-english" dir="ltr">{option.english}</span>
-                  <span className="what-build__stack-arabic">{option.result}</span>
-                </button>
-              ))}
-            </div>
-
-            <p className="what-build__system-foot" dir="ltr">ONE SYSTEM&nbsp; / &nbsp;MANY WAYS TO MOVE</p>
-          </div>
+        <div className="what-build__lede" dir="rtl">
+          <h2 id="what-build-title" className="what-build__headline">
+            مش كل بيزنس
+            <br />
+            محتاج نفس الموقع.
+          </h2>
+          <p className="what-build__body">
+            الحل الصح يبدأ من المرحلة اللي شغلك فيها، مش من قالب جاهز.
+          </p>
         </div>
 
-        <div className="what-build__offer">
-          <div className="what-build__offer-intro" dir="rtl">
-            <p className="what-build__offer-kicker" dir="ltr">THE OFFER&nbsp; / &nbsp;ONE FOCUS</p>
-            <h3>حلول ويب واضحة<br />لخطوتك الجاية.</h3>
-            <p>
-              من صفحة هبوط سريعة لمتجر أو منصة تعليمية،
-              <br />
-              كل حل له دور واضح في نمو شغلك.
-            </p>
-            <span>اختار البداية. نكمّل معاك من هناك.</span>
-          </div>
+        <div className="what-build__explorer" dir="rtl">
+          <article
+            className="what-build__detail"
+            key={activeOption.slug}
+            id="build-active-detail"
+            role="tabpanel"
+            aria-labelledby={activeTabId}
+            aria-live="polite"
+          >
+            <div className="what-build__detail-meta" dir="ltr">
+              <span>{activeOption.number} / {activeOption.english}</span>
+              <span className="what-build__detail-status">
+                {activeOption.kind === 'custom' ? 'CUSTOM PATH' : 'SELECTED PATH'}
+              </span>
+            </div>
 
-          <div className="what-build__services" role="group" aria-label="خدمات الويب">
-            {buildOptions.map((option, index) => (
-              <button
-                className={`what-build__service-card${index === activeIndex ? ' is-active' : ''}`}
-                key={option.slug}
-                type="button"
-                aria-pressed={index === activeIndex}
-                aria-controls="build-active-detail"
-                onClick={() => setActiveIndex(index)}
-              >
-                <span className="what-build__service-code" dir="ltr">{option.number}&nbsp; / &nbsp;{option.english}</span>
-                <strong>{option.title}</strong>
-                <span>{option.description}</span>
-              </button>
-            ))}
-          </div>
+            <h3 id={activeTabId}>{activeOption.title}</h3>
+
+            <div className="what-build__detail-copy">
+              <p>
+                <span className="what-build__detail-label">مناسبة لو</span>
+                {activeOption.fit}
+              </p>
+              <p>
+                <span className="what-build__detail-label">النتيجة</span>
+                {activeOption.outcome}
+              </p>
+            </div>
+
+            <div className="what-build__detail-bottom">
+              <p className="what-build__detail-pricing">{activeOption.pricing}</p>
+              <a className="what-build__detail-cta" href="#contact">
+                خلّينا نحدد البداية
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </article>
+
+          <nav className="what-build__selector" aria-label="اختار الحل المناسب" role="tablist">
+            <p className="what-build__selector-heading">اختار البداية اللي شبه مرحلتك.</p>
+
+            <div className="what-build__selector-list">
+              {buildOptions.filter((option) => option.kind === 'core').map(renderTab)}
+            </div>
+            <p className="what-build__selector-custom-label" dir="ltr">CUSTOM PATH</p>
+            <div className="what-build__selector-custom">
+              {buildOptions.filter((option) => option.kind === 'custom').map(renderTab)}
+            </div>
+          </nav>
         </div>
-
-        <footer className="what-build__footer">
-          <a className="what-build__cta" href="#contact">
-            ابدأ من الحل المناسب لمرحلتك
-            <span aria-hidden="true">↗</span>
-          </a>
-          <p dir="ltr">SHIFT&nbsp; / &nbsp;WHAT WE BUILD&nbsp; / &nbsp;03</p>
-          <span className="what-build__footer-rule" aria-hidden="true" />
-        </footer>
       </div>
     </section>
   )
