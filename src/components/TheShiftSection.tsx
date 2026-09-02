@@ -1,5 +1,5 @@
 const desktopAperture = '/assets/shift-premium-signal-aperture.png'
-const mobileAperture = '/assets/shift-premium-signal-aperture-mobile.png'
+const mobileAperture = desktopAperture
 const desktopOuterOrbit = '/assets/shift-premium-orbit-outer.svg'
 const mobileOuterOrbit = '/assets/shift-premium-orbit-outer-mobile.svg'
 const secondaryOrbit = '/assets/shift-premium-orbit-secondary.svg'
