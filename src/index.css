@@ -4159,15 +4159,18 @@ a:focus-visible {
 
 .shift-signal__capability-title {
   display: block;
+  align-self: flex-end;
   width: min(100%, 330px);
   margin-top: 18px;
   color: rgba(247, 244, 239, 0.96);
+  direction: rtl;
   font-family: var(--font-arabic);
   font-size: clamp(16px, 1.25vw, 19px);
   font-weight: 700;
   letter-spacing: -0.015em;
   line-height: 1.45;
   text-align: right;
+  unicode-bidi: plaintext;
 }
 
 .shift-signal__capability-arrow {

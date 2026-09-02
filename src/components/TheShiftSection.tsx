@@ -108,7 +108,7 @@ export default function TheShiftSection() {
             {capabilityStages.map((stage) => (
               <div className={`shift-signal__capability shift-signal__capability--${stage.key}`} key={stage.key}>
                 <span className="shift-signal__capability-label" dir="ltr">{stage.label}</span>
-                <span className="shift-signal__capability-title">{stage.title}</span>
+                <span className="shift-signal__capability-title" dir="rtl">{stage.title}</span>
                 <span className="shift-signal__capability-arrow" aria-hidden="true">↗</span>
               </div>
             ))}
