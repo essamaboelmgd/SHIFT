@@ -8669,3 +8669,109 @@ a:focus-visible {
     transition: none;
   }
 }
+
+/* Mobile polish: keep the chapter copy right-led, reveal the full signal, and
+   keep the hero composition stable while Safari's browser chrome moves. */
+@media (max-width: 899px) {
+  .shift-hero {
+    height: 100svh;
+    min-height: 100svh;
+  }
+
+  .hero-footer {
+    top: calc(89.778% + 6px);
+    bottom: auto;
+  }
+
+  .what-build__lede-copy {
+    width: 100%;
+    align-self: flex-end;
+    text-align: right;
+  }
+
+  .what-build__headline,
+  .what-build__body {
+    text-align: right;
+  }
+
+  .what-build__lede-visual {
+    align-self: flex-end;
+    overflow: visible;
+  }
+
+  .what-build__lede-visual svg {
+    right: 0;
+    bottom: -18%;
+    width: 100%;
+    height: 130%;
+  }
+
+  .what-build__selector-heading {
+    margin-bottom: 18px;
+    font-size: 16px;
+  }
+
+  .what-build__selector-list {
+    column-gap: 12px;
+    row-gap: 0;
+  }
+
+  .what-build__selector-tab,
+  .what-build__selector-tab.is-active {
+    min-height: 64px;
+    grid-template-columns: 30px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 8px;
+    padding: 10px 10px 12px 0;
+    border-bottom: 1px solid rgba(247, 244, 239, 0.1);
+    background: linear-gradient(100deg, transparent, rgba(247, 244, 239, 0.018));
+  }
+
+  .what-build__selector-tab::after {
+    top: 15px;
+    right: 0;
+    left: auto;
+    width: 6px;
+    height: 6px;
+  }
+
+  .what-build__selector-tab.is-active {
+    border-bottom-color: rgba(254, 94, 14, 0.3);
+    background: linear-gradient(100deg, rgba(254, 94, 14, 0.1), transparent 88%);
+  }
+
+  .what-build__selector-tab.is-active::before {
+    position: absolute;
+    right: 0;
+    bottom: -1px;
+    width: 34px;
+    height: 2px;
+    background: var(--shift-orange);
+    content: '';
+  }
+
+  .what-build__selector-number {
+    padding-top: 1px;
+    font-size: 10px;
+  }
+
+  .what-build__selector-english {
+    font-size: 10px;
+    line-height: 1.35;
+  }
+
+  .what-build__selector-result {
+    font-size: 15px;
+    line-height: 1.35;
+  }
+
+  .what-build__selector-custom-label {
+    margin-top: 20px;
+    padding-top: 14px;
+  }
+
+  .what-build__selector-custom .what-build__selector-tab {
+    min-height: 58px;
+    background: linear-gradient(100deg, transparent, rgba(247, 244, 239, 0.014));
+  }
+}
