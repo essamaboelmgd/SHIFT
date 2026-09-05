@@ -8,7 +8,8 @@ Create the final major homepage conversion section directly before the footer. T
 
 Use the supplied CTA reference as the hierarchy guide and translate it into the established SHIFT visual system. The approved composition is **Editorial Brief + Route Ledger**:
 
-- Chapter: `07 / YOUR NEXT MOVE`, following the current homepage sequence.
+- Chapter: `08 / YOUR NEXT MOVE`, because FAQ is chapter 07 in the current homepage sequence.
+- Keep the chapter number in section config rather than embedding it in layout markup. This lets a future Client Proof section change the sequence without restructuring the component.
 - Context label: `THE SHIFT / PROJECT BRIEF`.
 - A large centered Arabic headline and concise supporting line lead the section.
 - Below the headline, use a two-column desktop layout with the Project Brief form as the primary area on the right and What Happens Next as the supporting area on the left.
@@ -95,7 +96,9 @@ type ProjectBriefPayload = {
 }
 ```
 
-Keep submission behind an injectable async adapter. The default local adapter simulates success without transmitting data. The component handles rejected adapter promises as the error state. This boundary can later be replaced with the backend/dashboard API without changing the UI or schema.
+Keep submission behind an injectable async adapter. A mock adapter may simulate success only in development or test mode. In production, the component must never show a success state unless a real adapter confirms that the payload was transmitted successfully.
+
+When no real production adapter exists, render an explicit unconnected state and disable submission with a human message explaining that online project submission is not available yet. Do not discard entered values. The component handles rejected adapter promises as the error state. This boundary can later be replaced with the backend/dashboard API without changing the UI or schema.
 
 ## Visual System
 
@@ -115,7 +118,7 @@ Keep submission behind an injectable async adapter. The default local adapter si
 
 ## Integration Boundaries
 
-- Create a dedicated `ProjectBriefSection` component and a small submission module or exported adapter type.
+- Create a dedicated `ProjectBriefSection` component, a small submission module with an injectable adapter, and a section config containing the current chapter number `08`.
 - Mount the section after the current final content section and before the future footer.
 - Scope styles under `project-brief`.
 - Do not alter existing sections.
@@ -127,7 +130,8 @@ Keep submission behind an injectable async adapter. The default local adapter si
 - Project and contact options work with mouse, touch, and keyboard.
 - The contact field adapts correctly for WhatsApp, Phone, and Email.
 - Loading blocks duplicate submission.
-- Mock success and rejected-adapter error render inline without losing layout stability.
+- Development/test mock success and rejected-adapter error render inline without losing layout stability.
+- A production build without a real adapter exposes an honest unavailable state and cannot produce fake success.
 - The section works at desktop, tablet, 390px, and 360px with no overflow.
 - Runtime console is clean and the production build passes.
 - Existing homepage sections remain untouched visually and functionally.
