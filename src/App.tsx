@@ -1,8 +1,13 @@
 import { useEffect } from 'react'
 import ShiftHero from './components/ShiftHero'
 import TheShiftSection from './components/TheShiftSection'
+import SelectedWorkSection from './components/SelectedWorkSection'
 import ProcessSection from './components/ProcessSection'
 import WhatWeBuildSection from './components/WhatWeBuildSection'
+import WhyShiftSection from './components/WhyShiftSection'
+import FaqSection from './components/FaqSection'
+import ProjectBriefSection from './components/project-brief/ProjectBriefSection'
+import SiteFooter from './components/site-footer/SiteFooter'
 
 export default function App() {
   useEffect(() => {
@@ -38,8 +43,13 @@ export default function App() {
     <div className="site-shell">
       <ShiftHero />
       <TheShiftSection />
+      <SelectedWorkSection />
       <WhatWeBuildSection />
       <ProcessSection />
+      <WhyShiftSection />
+      <FaqSection chapterNumber="07" />
+      <ProjectBriefSection chapterNumber="08" />
+      <SiteFooter />
     </div>
   )
 }

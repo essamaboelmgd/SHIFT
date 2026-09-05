@@ -159,7 +159,6 @@ export default function ShiftHero() {
         </div>
 
         <div className="next-stage-bridge" id="next-stage">
-          <span id="contact" className="anchor-target" aria-hidden="true" />
           <span className="next-stage-bridge__meta">01&nbsp; / &nbsp;NEXT STAGE</span>
           <p>كل مرحلة نمو تحتاج حضورًا يواكبها.</p>
           <span className="next-stage-bridge__arrow" aria-hidden="true">
