@@ -10,7 +10,7 @@ Use the supplied reference as the composition direction: a right-aligned Arabic 
 
 ## Chapter and Header
 
-- Chapter: `07 / FAQ`, derived from the visible `06 / WHY SHIFT` chapter that precedes it.
+- Chapter: `07 / FAQ`, derived from the visible `06 / WHY SHIFT` chapter that precedes it. The chapter number is supplied through component configuration rather than embedded in the rendered markup so later sections can change the order cleanly.
 - Small label: `FAQ / BEFORE WE START`.
 - Headline line one: `قبل ما نبدأ،` in off-white.
 - Headline line two: `غالبًا عندك كام سؤال.` in Signal Orange.
@@ -23,9 +23,9 @@ Use the supplied reference as the composition direction: a right-aligned Arabic 
 Store all FAQ entries in one typed array so the section can later consume CMS or backend data without changing its rendering model.
 
 1. `المشروع بياخد قد إيه؟`
-   - `المدة بتختلف حسب نوع المشروع ونطاقه. بعد ما نفهم المطلوب بنحدد Timeline واضحة قبل بداية التنفيذ.`
+   - `المدة بتختلف حسب نوع المشروع ونطاقه. بعد ما نفهم المطلوب بنحدد مدة تنفيذ واضحة قبل بداية التنفيذ.`
 2. `السعر بيتحدد إزاي؟`
-   - `السعر بيتحدد حسب نطاق المشروع، حجم المحتوى، والوظائف المطلوبة. بعد فهم المشروع بنحدد Scope واضح وتسعير مناسب له.`
+   - `السعر بيتحدد حسب نطاق المشروع، حجم المحتوى، والوظائف المطلوبة. بعد فهم المشروع بنحدد نطاق واضح وتسعير مناسب له.`
 3. `التعديلات بتكون إزاي؟`
    - `كل مرحلة رئيسية بتشمل جولتين تعديلات ضمن النطاق المتفق عليه، وأي تغيير خارج النطاق بنتفق عليه بشكل منفصل قبل تنفيذه.`
 4. `هل هقدر أعدل محتوى الموقع بعد التسليم؟`
@@ -33,7 +33,7 @@ Store all FAQ entries in one typed array so the section can later consume CMS or
 5. `الدومين والاستضافة داخلين في المشروع؟`
    - `الدومين والاستضافة مش داخلين في تكلفة المشروع. بيكونوا باسم العميل، ونقدر نساعدك في اختيارهم وتجهيزهم وربط الموقع عليهم.`
 6. `بتعملوا حلول مخصصة؟`
-   - `أيوه. لو شغلك محتاج منطق أو Workflow خاص ومش مناسب لقالب جاهز، بنحدد الحل حسب طريقة شغلك ومتطلبات المشروع.`
+   - `أيوه. لو شغلك محتاج طريقة عمل أو منطق خاص ومش مناسب لقالب جاهز، بنحدد الحل حسب طريقة شغلك ومتطلبات المشروع.`
 7. `إيه اللي بيحصل بعد ما أبعت تفاصيل المشروع؟`
    - `بنراجع التفاصيل الأول، وبعدها بنتواصل معاك عشان نفهم المشروع أكتر ونحدد النطاق والخطوة المناسبة للبدء.`
 
@@ -69,7 +69,7 @@ Store all FAQ entries in one typed array so the section can later consume CMS or
 
 ## Architecture and Scope
 
-- Create `src/components/FaqSection.tsx`.
+- Create `src/components/FaqSection.tsx` with a `chapterNumber?: string` prop that defaults to `07`.
 - Add the component after `WhyShiftSection` in `src/App.tsx`.
 - Add one uniquely scoped `.faq-section` CSS block to `src/index.css`.
 - Do not modify the markup, behavior, or styles of existing homepage sections.
