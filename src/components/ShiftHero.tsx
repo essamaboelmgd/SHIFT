@@ -140,13 +140,13 @@ export default function ShiftHero() {
           <p className="hero-copy__support">نصمم ونبني حلول ويب تليق بالمرحلة اللي وصل لها شغلك،<br className="mobile-only-break" /> وتساعده يتحرك للمرحلة الجاية.</p>
 
           <div className="hero-copy__actions">
-            <a className="primary-action" href="#contact" onClick={(event) => { event.preventDefault(); scrollToTarget('#contact') }}>
-              ابدأ مشروعك
-              <SignalArrow />
-            </a>
             <a className="secondary-action" href="#work" onClick={(event) => { event.preventDefault(); scrollToTarget('#work') }}>
               شوف أعمالنا
               <span aria-hidden="true">→</span>
+            </a>
+            <a className="primary-action" href="#contact" onClick={(event) => { event.preventDefault(); scrollToTarget('#contact') }}>
+              ابدأ مشروعك
+              <SignalArrow />
             </a>
           </div>
         </section>
