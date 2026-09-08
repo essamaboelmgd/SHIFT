@@ -7,14 +7,14 @@
 
 ## Current task
 
-Mobile Hero refinement dispatch preparation.
+What We Build refinement dispatch preparation.
 
 ## Task graph and routing
 
 | Order | Workstream | Lane | Why | Dependencies | Execution | Status |
 | --- | --- | --- | --- | --- | --- | --- |
 | 0 | Inspection, baseline, graph | orchestrator | Repository-grounded planning and measurement | none | serial | complete |
-| 1 | Mobile Hero | `luna-max` (weight 1) | Bounded responsive/Safari layout reasoning | 0 | serial | pending |
+| 1 | Mobile Hero | `luna-max` (weight 1) | Bounded responsive/Safari layout reasoning | 0 | serial | complete; ready to commit |
 | 2 | What We Build | `luna-max` (weight 1) | Bounded responsive interaction and CSS | 0 | serial | pending |
 | 3 | Selected Work | `sol-medium` (weight 3) | Difficult transition state/data-flow debugging and mobile re-layout | 0 | serial | pending |
 | 4 | Process redesign | `terra-high` (weight 2) | Multi-file interactive section redesign | 0 | serial | pending |
@@ -27,7 +27,7 @@ Mobile Hero refinement dispatch preparation.
 
 ## Completed commits
 
-None yet.
+- `3c9c68a` — `docs: plan homepage stabilization sprint`
 
 ## Gates and measurements
 
@@ -39,6 +39,8 @@ None yet.
 - Available local executables: Google Chrome, Firefox, ffmpeg/ffprobe, ImageMagick. No WebKit/Playwright setup was found.
 - Baseline Chrome captures completed at 390x844 and 1440x900. Mobile confirms a content-independent empty tail after the metadata row; desktop composition renders intact.
 - Interactive browser connector exposed no available browser surface, so automated local browser QA is using installed headless browsers and will be reported as such.
+- Mobile Hero delegate gates independently confirmed: 2/2 targeted Node tests PASS, `npm run build` PASS, `git diff --check` PASS. Headless Chrome/CDP checked 430x932, 393x852, 390x844, 375x812, 375x667, 360x800 and desktop selector behavior at 1440x900.
+- Mobile Hero root cause: the final mobile cascade imposed `min-height: 100vh/100svh` on `.shift-hero` and propagated it through `.shift-hero__canvas { min-height: inherit; }`. The verified fix restores content-sized `height:auto; min-height:0`, removes inherited canvas minimum, and retains safe-area padding/normal flow.
 
 ## Failures / escalations
 
@@ -55,4 +57,4 @@ All workstreams 1-10 above.
 
 ## Resume point
 
-Commit this plan/progress checkpoint, then dispatch Workstream 1 (`luna-max`) with active weight 1 / 4.
+Commit verified Workstream 1, then record and dispatch Workstream 2 (`luna-max`) serially.

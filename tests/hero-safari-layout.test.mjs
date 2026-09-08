@@ -10,9 +10,12 @@ const start = css.indexOf(marker)
 const end = css.indexOf('/* Why SHIFT', start)
 const mobileHero = start >= 0 && end > start ? css.slice(start, end) : ''
 
-test('mobile hero uses the stable small viewport without a rigid viewport height', () => {
-  assert.match(mobileHero, /\.shift-hero\s*\{[^}]*height:\s*auto[^}]*min-height:\s*100vh[^}]*min-height:\s*100svh/s)
-  assert.doesNotMatch(mobileHero, /100dvh/)
+test('mobile hero follows content height without reserving a viewport-sized tail', () => {
+  assert.match(mobileHero, /\.shift-hero\s*\{[^}]*height:\s*auto[^}]*min-height:\s*0/s)
+  assert.doesNotMatch(mobileHero, /\.shift-hero\s*\{[^}]*min-height:\s*100(?:vh|svh|dvh)/s)
+
+  assert.match(mobileHero, /\.shift-hero__canvas\s*\{[^}]*height:\s*auto/s)
+  assert.doesNotMatch(mobileHero, /\.shift-hero__canvas\s*\{[^}]*min-height:/s)
 })
 
 test('mobile hero primary copy remains in normal document flow', () => {
@@ -30,7 +33,8 @@ test('mobile hero primary copy remains in normal document flow', () => {
 })
 
 test('mobile hero canvas grows naturally and reserves iPhone safe areas', () => {
-  assert.match(mobileHero, /\.shift-hero__canvas\s*\{[^}]*position:\s*relative[^}]*height:\s*auto[^}]*min-height:\s*inherit/s)
+  assert.match(mobileHero, /\.shift-hero__canvas\s*\{[^}]*position:\s*relative[^}]*height:\s*auto/s)
+  assert.doesNotMatch(mobileHero, /\.shift-hero__canvas\s*\{[^}]*min-height:/s)
   assert.match(mobileHero, /env\(safe-area-inset-top\)/)
   assert.match(mobileHero, /env\(safe-area-inset-bottom\)/)
   assert.match(html, /viewport-fit=cover/)

@@ -31,10 +31,10 @@
 
 **Files:** `src/components/ShiftHero.tsx`, relevant Hero rules in `src/index.css`, `tests/hero-safari-layout.test.mjs`, `tests/hero-image-delivery.test.mjs`.
 
-- [ ] Add/update regression assertions for flow-based mobile height, safe areas, and eager responsive Hero image delivery.
-- [ ] Remove the content-independent oversized mobile minimum while retaining `svh`/safe-area resilience and normal flow.
-- [ ] Verify desktop remains unchanged and mobile sizes 430x932 through 360px have no tail, clipping, overlap, or overflow.
-- [ ] Run targeted tests and build; review and commit.
+- [x] Add/update regression assertions for flow-based mobile height, safe areas, and eager responsive Hero image delivery.
+- [x] Remove the content-independent oversized mobile minimum while retaining safe-area resilience and normal flow.
+- [x] Verify desktop remains unchanged and mobile sizes 430x932 through 360px have no forced tail, clipping, overlap, or overflow.
+- [x] Run targeted tests and build; review and commit.
 
 ### Task 3: What We Build responsive refinement
 

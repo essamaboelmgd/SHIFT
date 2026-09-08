@@ -9585,8 +9585,7 @@ a:focus-visible {
 @media (max-width: 899px) {
   .shift-hero {
     height: auto;
-    min-height: 100vh;
-    min-height: 100svh;
+    min-height: 0;
     padding: 0;
   }
 
@@ -9595,7 +9594,6 @@ a:focus-visible {
     inset: auto;
     width: 100%;
     height: auto;
-    min-height: inherit;
     padding-bottom: calc(18px + env(safe-area-inset-bottom));
     transform: none;
   }
