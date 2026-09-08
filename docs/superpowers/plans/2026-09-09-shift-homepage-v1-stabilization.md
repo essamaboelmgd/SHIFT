@@ -40,10 +40,10 @@
 
 **Files:** `src/components/WhatWeBuildSection.tsx`, relevant rules in `src/index.css`, new targeted Node test if useful.
 
-- [ ] Preserve service data and desktop UX while fluidly increasing selector hierarchy and breathing room.
-- [ ] Replace the mobile two-column selector with full-width rows and one inline expanded active detail; keep Custom separated.
-- [ ] Preserve one authoritative active-service state, keyboard/button semantics, readable touch targets, and no duplicated details.
-- [ ] Run targeted tests/build, visually verify, review, and commit.
+- [x] Preserve service data and desktop UX while fluidly increasing selector hierarchy and breathing room.
+- [x] Replace the mobile two-column selector with full-width rows and one inline expanded active detail; keep Custom separated.
+- [x] Preserve one authoritative active-service state, keyboard/button semantics, readable touch targets, and no duplicated details.
+- [x] Run targeted tests/build, visually verify, review, and commit.
 
 ### Task 4: Selected Work transition and mobile stabilization
 

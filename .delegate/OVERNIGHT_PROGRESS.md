@@ -7,15 +7,15 @@
 
 ## Current task
 
-What We Build refinement dispatch preparation.
+Selected Work investigation/fix dispatch preparation.
 
 ## Task graph and routing
 
 | Order | Workstream | Lane | Why | Dependencies | Execution | Status |
 | --- | --- | --- | --- | --- | --- | --- |
 | 0 | Inspection, baseline, graph | orchestrator | Repository-grounded planning and measurement | none | serial | complete |
-| 1 | Mobile Hero | `luna-max` (weight 1) | Bounded responsive/Safari layout reasoning | 0 | serial | complete; ready to commit |
-| 2 | What We Build | `luna-max` (weight 1) | Bounded responsive interaction and CSS | 0 | serial | pending |
+| 1 | Mobile Hero | `luna-max` (weight 1) | Bounded responsive/Safari layout reasoning | 0 | serial | complete |
+| 2 | What We Build | `luna-max` (weight 1) | Bounded responsive interaction and CSS | 0 | serial | complete; ready to commit |
 | 3 | Selected Work | `sol-medium` (weight 3) | Difficult transition state/data-flow debugging and mobile re-layout | 0 | serial | pending |
 | 4 | Process redesign | `terra-high` (weight 2) | Multi-file interactive section redesign | 0 | serial | pending |
 | 5 | Order and chapter integration | `luna-high` (weight 1) | Small bounded integration | 1-4 | serial | pending |
@@ -28,6 +28,7 @@ What We Build refinement dispatch preparation.
 ## Completed commits
 
 - `3c9c68a` — `docs: plan homepage stabilization sprint`
+- `1ae2619` — `fix: restore compact mobile hero flow`
 
 ## Gates and measurements
 
@@ -41,6 +42,8 @@ What We Build refinement dispatch preparation.
 - Interactive browser connector exposed no available browser surface, so automated local browser QA is using installed headless browsers and will be reported as such.
 - Mobile Hero delegate gates independently confirmed: 2/2 targeted Node tests PASS, `npm run build` PASS, `git diff --check` PASS. Headless Chrome/CDP checked 430x932, 393x852, 390x844, 375x812, 375x667, 360x800 and desktop selector behavior at 1440x900.
 - Mobile Hero root cause: the final mobile cascade imposed `min-height: 100vh/100svh` on `.shift-hero` and propagated it through `.shift-hero__canvas { min-height: inherit; }`. The verified fix restores content-sized `height:auto; min-height:0`, removes inherited canvas minimum, and retains safe-area padding/normal flow.
+- What We Build delegate and orchestrator gates: focused test 2/2 PASS, `npm run build` PASS, `git diff --check` PASS. Aggregate remains 4 PASS / 1 known stale footer failure.
+- What We Build browser checks: headless Chrome/CDP at 1440, 430, 390, 375, 360; Business→Portfolio→Custom switching; one selected row/panel; inline mobile detail; no document-width overflow. Desktop explorer remained ~496px tall after correcting exposed row-gap/min-height cascade behavior.
 
 ## Failures / escalations
 
@@ -57,4 +60,4 @@ All workstreams 1-10 above.
 
 ## Resume point
 
-Commit verified Workstream 1, then record and dispatch Workstream 2 (`luna-max`) serially.
+Commit verified Workstream 2, then record and dispatch Selected Work on `sol-medium` serially.
