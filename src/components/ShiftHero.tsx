@@ -7,6 +7,49 @@ const navItems = [
   { label: 'عنّا', href: '#about' },
 ]
 
+const HERO_ARTWORK_MOBILE_SRC_SET = [
+  '/assets/shift-glass-field-480.webp 480w',
+  '/assets/shift-glass-field-900.webp 900w',
+  '/assets/shift-glass-field-1280.webp 1280w',
+].join(', ')
+
+const HERO_ARTWORK_DESKTOP_SRC_SET = [
+  HERO_ARTWORK_MOBILE_SRC_SET,
+  '/assets/shift-glass-field-1672.webp 1672w',
+].join(', ')
+
+const HERO_ARTWORK_SIZES = '100vw'
+
+function HeroArtwork({ className }: { className?: string }) {
+  return (
+    <picture>
+      <source
+        media="(max-width: 899px)"
+        type="image/webp"
+        srcSet={HERO_ARTWORK_MOBILE_SRC_SET}
+        sizes={HERO_ARTWORK_SIZES}
+      />
+      <source
+        media="(min-width: 900px)"
+        type="image/webp"
+        srcSet={HERO_ARTWORK_DESKTOP_SRC_SET}
+        sizes={HERO_ARTWORK_SIZES}
+      />
+      <img
+        className={className}
+        src="/assets/shift-glass-field-1672.webp"
+        width={1672}
+        height={941}
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
+        alt=""
+        aria-hidden="true"
+      />
+    </picture>
+  )
+}
+
 function Wordmark({ variant }: { variant: 'desktop' | 'mobile' }) {
   return (
     <span className={`wordmark wordmark--${variant}`} aria-label="SHIFT">
@@ -46,12 +89,7 @@ export default function ShiftHero() {
   return (
     <main className={`shift-hero${isReady ? ' is-ready' : ''}`} id="top" aria-labelledby="hero-title">
       <div className="shift-hero__canvas">
-        <img
-          className="shift-hero__asset shift-hero__asset--desktop"
-          src="/assets/shift-glass-field.png"
-          alt=""
-          aria-hidden="true"
-        />
+        <HeroArtwork className="shift-hero__asset shift-hero__asset--desktop" />
         <div className="shift-hero__atmosphere shift-hero__atmosphere--orange" aria-hidden="true">
           <img src="/assets/desktop-orange-atmosphere.svg" alt="" />
         </div>
@@ -154,7 +192,7 @@ export default function ShiftHero() {
         <div className="mobile-bottom-glow" aria-hidden="true" />
 
         <div className="mobile-visual-stage" aria-hidden="true">
-          <img src="/assets/shift-glass-field.png" alt="" />
+          <HeroArtwork />
           <div className="mobile-visual-stage__fade" />
         </div>
 
