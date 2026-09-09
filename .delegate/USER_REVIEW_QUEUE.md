@@ -56,3 +56,25 @@ This queue distinguishes automated verification from explicit user acceptance. N
 - **Manual checks:** Scroll the complete page and confirm the narrative sequence; use desktop/mobile navigation links; confirm chapter numbers 01–08 and no testimonial section.
 - **Known limitations:** The stale footer test is deferred to the launch/content-hygiene workstream; final integrated navigation/visual acceptance remains pending.
 - **Related follow-up:** Recheck after performance, accessibility, launch hygiene, and motion integration.
+
+## Responsive and Accessibility Refinement
+
+- **Status:** `AUTO_VERIFIED — USER REVIEW PENDING`
+- **Commit SHA:** `623e90e`
+- **What changed:** Added roving-tab-stop keyboard behavior to the What We Build tab set and raised compact Selected Work controls/mobile topline targets to a 44px minimum where the cascade had reduced them.
+- **Important decisions:** Preserved the accepted Mobile Hero and What We Build visual composition. The recovery review discarded an erroneous delegate change that restored fake contact data and retained the verified real SHIFT email/WhatsApp details.
+- **Automated checks:** Focused accessibility regressions passed; integrated 11-file Node suite passed; production build and diff hygiene passed.
+- **Manual checks:** Navigate What We Build by Tab and arrow keys and confirm focus follows selection; inspect visible focus rings; operate Selected Work controls by mouse, keyboard, and touch; confirm target sizing and no responsive clipping at desktop, tablet, and phone widths.
+- **Known limitations:** Broad assistive-technology and physical-device acceptance remains manual. The AGY browser setup was unavailable in its sandbox, so rendered checks remain part of integrated QA.
+- **Related follow-up:** Recheck after motion/performance integration; performance infrastructure is currently blocked.
+
+## SEO, Discovery, 404, and Content Hygiene
+
+- **Status:** `AUTO_VERIFIED — USER REVIEW PENDING`
+- **Commit SHA:** `1864f11`
+- **What changed:** Added truthful OpenGraph/Twitter text metadata, supported Organization structured data, `robots.txt`, grounded `llms.txt`, and a branded Arabic static 404. Removed dead EN language UI and stale commented placeholders; corrected footer tests to the verified contact data.
+- **Important decisions:** Omitted canonical/origin-dependent URL fields, social images, sitemap URL, and schema logo because the production origin is not documented. Kept `SHIFT Creative Solutions` because PRODUCT.md explicitly supports it.
+- **Automated checks:** Launch hygiene tests and all integrated Node tests passed; production build copied the static 404 and completed successfully; referenced asset and diff checks passed.
+- **Manual checks:** Open `/404.html` directly and verify branding, Arabic copy, home/WhatsApp actions, focus states, and mobile layout; preview social metadata text; confirm footer shows only the real AR locale and real contact/social destinations.
+- **Known limitations:** Canonical URL, absolute social image, sitemap URL, and origin-based schema fields remain deployment-only until the production domain is known.
+- **Related follow-up:** Add origin-dependent discovery fields when deployment configuration is available.
