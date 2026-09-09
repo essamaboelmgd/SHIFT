@@ -4,7 +4,7 @@ const navItems = [
   { label: 'أعمالنا', href: '#work' },
   { label: 'خدماتنا', href: '#services' },
   { label: 'طريقتنا', href: '#process' },
-  { label: 'عنّا', href: '#about' },
+  { label: 'عنّا', href: '#why-shift' },
 ]
 
 const HERO_ARTWORK_MOBILE_SRC_SET = [

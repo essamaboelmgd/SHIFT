@@ -43,8 +43,8 @@ export default function App() {
     <div className="site-shell">
       <ShiftHero />
       <TheShiftSection />
-      <SelectedWorkSection />
       <WhatWeBuildSection />
+      <SelectedWorkSection />
       <ProcessSection />
       <WhyShiftSection />
       <FaqSection chapterNumber="07" />
