@@ -90,6 +90,7 @@ export default function WhatWeBuildSection() {
     const direction = event.key === 'ArrowLeft' || event.key === 'ArrowUp' ? -1 : 1
     const nextOption = buildOptions[(currentIndex + direction + buildOptions.length) % buildOptions.length]
     setActiveSlug(nextOption.slug)
+    setTimeout(() => document.getElementById(`build-tab-${nextOption.slug}`)?.focus(), 0)
   }
 
   const renderDetail = (option: (typeof buildOptions)[number]) => {
@@ -159,6 +160,7 @@ export default function WhatWeBuildSection() {
         role="tab"
         aria-selected={isActive}
         aria-controls="build-active-detail"
+        tabIndex={isActive ? 0 : -1}
         onClick={() => setActiveSlug(option.slug)}
         onKeyDown={(event) => handleTabKeyDown(event, option.slug)}
       >
