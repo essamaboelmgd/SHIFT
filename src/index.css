@@ -11627,6 +11627,191 @@ a:focus-visible {
   }
 }
 
+/* Selected Work stabilization — coherent timeline and mobile flow. */
+.selected-work {
+  overflow-x: clip;
+}
+
+.selected-work__active-sheet,
+.selected-work__footer-layer--active,
+.selected-work__preview-sheet {
+  transition: none;
+  will-change: transform, opacity;
+}
+
+.selected-work__stage .selected-work__visuals .selected-work__active-sheet {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.selected-work__stage.is-transitioning .selected-work__stage-footer .selected-work__footer-layer {
+  position: relative;
+  inset: auto;
+}
+
+.selected-work__title-row {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+}
+
+.selected-work__proof {
+  margin-bottom: 0.32em;
+  padding: 4px 7px;
+  border: 1px solid rgba(254, 94, 14, 0.34);
+  border-radius: 999px;
+  color: rgba(247, 244, 239, 0.62);
+  font-family: var(--font-body);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.selected-work__case-study {
+  font-family: var(--font-arabic);
+  font-size: 12px;
+  letter-spacing: 0;
+}
+
+.selected-work__preview-sheet:disabled {
+  cursor: default;
+}
+
+@media (max-width: 899px) {
+  .selected-work__canvas {
+    padding-inline: 18px;
+    padding-bottom: 30px;
+  }
+
+  .selected-work__intro {
+    margin-top: 28px;
+  }
+
+  .selected-work__intro h2 {
+    font-size: clamp(36px, 10.5vw, 46px);
+    line-height: 1.08;
+  }
+
+  .selected-work__explorer {
+    margin-top: 22px;
+  }
+
+  .selected-work__stage {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .selected-work__visuals {
+    order: 1;
+    width: 100%;
+    aspect-ratio: 1.45;
+  }
+
+  .selected-work__stage.is-transitioning .selected-work__visuals {
+    aspect-ratio: 1.45;
+  }
+
+  .selected-work__stage-footer {
+    order: 2;
+    min-height: 176px;
+    margin-top: 0;
+    padding: 18px 4px 10px;
+    overflow: hidden;
+    background: transparent;
+  }
+
+  .selected-work__stage.is-transitioning .selected-work__stage-footer {
+    min-height: 176px;
+  }
+
+  .selected-work__stage.is-transitioning .selected-work__stage-footer .selected-work__footer-layer {
+    position: relative;
+    inset: auto;
+  }
+
+  .selected-work__footer-layer {
+    min-height: 0;
+  }
+
+  .selected-work__footer-main {
+    margin-top: 13px;
+  }
+
+  .selected-work__footer-main h3 {
+    font-size: clamp(32px, 10vw, 43px);
+    line-height: 0.98;
+  }
+
+  .selected-work__footer-main p {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .selected-work__case-study {
+    margin-top: 13px;
+    font-size: 11px;
+  }
+
+  .selected-work__preview-sheet {
+    position: relative;
+    order: 3;
+    bottom: auto;
+    left: auto;
+    width: min(74%, 280px);
+    height: 104px;
+    margin: 10px 0 0 auto;
+    border-radius: 14px 2px 14px 2px;
+  }
+
+  .selected-work__preview-label {
+    top: 13px;
+    right: 14px;
+  }
+
+  .selected-work__preview-title {
+    right: 14px;
+    bottom: 15px;
+    font-size: 18px;
+  }
+
+  .selected-work__preview-marker {
+    right: 14px;
+    bottom: 15px;
+    font-size: 16px;
+  }
+
+  .selected-work__control-rail {
+    order: 4;
+    margin-top: 13px;
+    padding-top: 9px;
+    border-top: 1px solid rgba(247, 244, 239, 0.1);
+  }
+
+  .selected-work__control-label,
+  .selected-work__control-hint {
+    display: none;
+  }
+
+  .selected-work__controls {
+    margin-top: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .selected-work__active-sheet,
+  .selected-work__footer-layer--active,
+  .selected-work__preview-sheet {
+    transition: none;
+  }
+}
+
 /* Why SHIFT / cinematic partner stage. */
 .why-shift {
   position: relative;
