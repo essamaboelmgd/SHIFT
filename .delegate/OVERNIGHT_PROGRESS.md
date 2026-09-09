@@ -30,6 +30,7 @@ Selected Work verified and ready to land. Stop after this workstream per the res
 - `3c9c68a` — `docs: plan homepage stabilization sprint`
 - `1ae2619` — `fix: restore compact mobile hero flow`
 - `d4b0685` — `feat: refine responsive service explorer`
+- `744a22e` — `fix: stabilize selected work carousel`
 
 ## Gates and measurements
 
