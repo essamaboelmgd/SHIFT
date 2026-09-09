@@ -100,3 +100,14 @@ This queue distinguishes automated verification from explicit user acceptance. N
 - **Manual checks:** Scroll the full page at normal motion and confirm entrances feel restrained and related; hover/focus navigation, CTAs, service rows, Selected Work preview/link, Process controls, and FAQ; enable OS/browser reduced motion and confirm content appears immediately, controls remain usable, no ambient/entrance animation persists, and anchor navigation no longer smooth-scrolls.
 - **Known limitations:** Motion taste and physical-device perception require user review; no autoplay/parallax/scroll-jacking was added.
 - **Related follow-up:** Recheck motion and reduced-motion during final integrated browser QA.
+
+## Final Integrated Release Candidate
+
+- **Status:** `AUTO_VERIFIED — USER REVIEW PENDING`
+- **Commit SHA:** `5a98ad8` (integrated implementation HEAD before this QA ledger)
+- **What changed:** No additional product change; this card covers the integrated Homepage V1 stabilization result across ordering, interactions, accessibility, performance, motion, discovery, and 404 behavior.
+- **Important decisions:** Automated/browser verification is evidence, not user acceptance. Mobile Hero and What We Build remain previously accepted; Selected Work remains repaired but pending physical-device review.
+- **Automated checks:** All 13 Node test files and production build passed. Chrome/CDP verified real-coordinate mouse NEXT/PREV at 1440×900 and 1280×800 for three cycles each, keyboard navigation, 390×844 touch swipe/mobile hierarchy, synchronized project state, reduced motion, zero horizontal overflow, and the static 404 response.
+- **Manual checks:** Review the complete homepage narrative and chapter order; repeat Selected Work NEXT/PREV with a normal physical mouse for several cycles and confirm no dead zone/flashing/desync; verify the deliberate mobile Selected Work hierarchy and swipe on a phone; activate What We Build and Process with pointer/keyboard; inspect focus states, image loading, and motion with reduced motion both off and on; open the branded 404 and verify real links.
+- **Known limitations:** Physical hardware feel and subjective visual/motion acceptance remain yours. No deployment or fresh Lighthouse score was performed. Origin-dependent SEO/social fields await a production domain.
+- **Related follow-up:** Mark individual cards `USER_ACCEPTED` only after explicit manual confirmation; add deployment-origin metadata during the deployment workflow.
