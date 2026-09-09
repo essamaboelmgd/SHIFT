@@ -23,8 +23,8 @@ Fleet V2 resumed run: Selected Work is user-rejected/reopened and requires root-
 | 0 | Inspection, baseline, graph | orchestrator | Repository-grounded planning and measurement | none | serial | complete |
 | 1 | Mobile Hero | `luna-max` (weight 1) | Bounded responsive/Safari layout reasoning | 0 | prior run | `USER_ACCEPTED` |
 | 2 | What We Build | `luna-max` (weight 1) | Bounded responsive interaction and CSS | 0 | prior run | `USER_ACCEPTED` |
-| 3R | Selected Work repair | `agy-sonnet` | Nuanced approved mobile composition plus mouse/pointer implementation; Claude pool has full headroom | 0 | isolated worktree, parallel wave 1 | `USER_REJECTED / REOPENED` |
-| 4 | Process redesign | `agy-sonnet` | Nuanced approved frontend composition and responsive CSS; independent section scope | 0 | isolated worktree, parallel wave 1 | pending |
+| 3R | Selected Work repair | `agy-sonnet` → `terra-medium` | Sonnet was best fit but headless command permission failed; root cause then made Terra Medium sufficient | 0 | isolated worktree, parallel wave 1 | `AUTO_VERIFIED — USER_REVIEW_PENDING` |
+| 4 | Process redesign | `agy-sonnet` → `terra-low` | Sonnet was best fit but returned no implementation; broader clear frontend work rerouted to Terra Low | 0 | isolated worktree, parallel wave 1 | `AUTO_VERIFIED — USER_REVIEW_PENDING` |
 | 5 | Order and chapter integration | `luna-high` (weight 1) | Small bounded integration | 1-4 | serial | pending |
 | 6 | Responsive, legibility, accessibility | `terra-high` (weight 2) | Cross-section multi-file QA/fixes | 1-5 | serial | pending |
 | 7 | Image delivery and performance | `terra-high` (weight 2) | Asset pipeline plus measured loading changes | 3, 5 | serial | pending |
@@ -38,6 +38,9 @@ Fleet V2 resumed run: Selected Work is user-rejected/reopened and requires root-
 - `1ae2619` — `fix: restore compact mobile hero flow`
 - `d4b0685` — `feat: refine responsive service explorer`
 - `744a22e` — `fix: stabilize selected work carousel`
+- `80a7821` — `docs: reopen selected work stabilization`
+- `e975620` — `fix: repair selected work pointer navigation`
+- `706ecaa` — `feat: make process route interactive`
 
 ## Gates and measurements
 
@@ -60,12 +63,17 @@ Fleet V2 resumed run: Selected Work is user-rejected/reopened and requires root-
 - Selected Work diff hygiene: PASS (`git diff --check`). Aggregate Node suite remains 5 PASS / 1 known pre-existing stale footer-test failure.
 - Selected Work Chromium/CDP frame verification: NEXT and PREVIOUS sampled at 0/20/50/80/100% at 1440x900, 430x932, 393x852, 390x844, 375x812, 375x667, and 360x800. Every sample had one main visual, one footer, one preview, synchronized project metadata/counter/preview, zero transition overlays, zero document overflow, and no captured console/runtime errors.
 - Selected Work interaction verification at 390px: rapid double-click lock, keyboard arrows, preview click, touch swipe, reduced motion, and simulated long-frame/hidden-lag completion all settled on one synchronized project with no errors or overflow. Visual screenshot review covered desktop and mobile mid-transition and settled states. Firefox headless rendered the local page at 430x932; no WebKit runtime/test setup is available.
+- Resumed-run Selected Work root cause: `.selected-work__stage` captured real mouse pointers on `pointerdown`, retargeting `pointerup`, `mouseup`, and `click` away from the nested NEXT/PREV button to the stage. Center hit-testing itself was correct; no overlay intercepted the control.
+- Selected Work repair gates: focused 5-test suite PASS, production build PASS, diff hygiene PASS. Independent real-coordinate CDP mouse cycles at 1440x900 and 1280x800 confirmed visible/enabled controls, center `elementFromPoint` button ancestry, native button pointer completion, repeated 01↔02 navigation, and restored NEXT/PREV response. Delegate additionally verified touch swipe, keyboard, reduced motion, mobile synchronization, and no overflow.
+- Process redesign gates: focused tests PASS, production build PASS, diff hygiene PASS. Independent real-coordinate CDP checks at 1440x900 and 390x844 cycled ALIGN→SHAPE→BUILD→ALIGN, confirmed synchronized active word/number/pressed state, settled 44x44 marker targets, large ruled-row controls, and zero horizontal overflow.
 
 ## Failures / escalations
 
 - Local Vite server initially hit sandbox `EPERM`; approved escalated localhost execution succeeded.
 - Existing footer test failure is a stale-test defect, not a build failure; scheduled for content-hygiene correction without weakening real assertions.
 - The `sol-medium` relay exited non-zero after a transient duplicate-target `apply_patch` rejection and later hit its Codex usage limit, but the same session had already written the complete implementation and verification artifacts. Orchestrator review found no remaining defect, so no repair retry or escalation was used.
+- Fleet V2 Antigravity wave failed for environmental permission reasons: Selected Work and the read-only Gemini audit were auto-denied command access in headless mode; Process returned an incomplete inspection line and no diff. No full-access bypass was enabled. Selected Work rerouted to `terra-medium`; Process rerouted to `terra-low`.
+- Process Terra Low had one transient duplicate-target patch rejection and recovered. Orchestrator review found undersized marker hit targets; one bounded same-session repair enlarged hit boxes while keeping glyph scale, then gates/browser checks passed.
 
 ## Blockers
 
