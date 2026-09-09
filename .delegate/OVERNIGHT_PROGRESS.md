@@ -109,3 +109,13 @@ Workstreams 6-10 remain. Workstreams 1-2 are user accepted; 3R, 4, and 5 are aut
 ## Resume point
 
 Checkpoint this recovery state, prune only stale Git worktree registrations, recreate Wave 2 worktrees from `41adb40`, then dispatch sandboxed Antigravity lanes. Do not reopen Mobile Hero or What We Build absent an integrated regression.
+
+## Recovery execution update — 2026-09-09
+
+- Recovery checkpoint landed as `89cf214` (`docs: checkpoint Fleet V2 sprint recovery`). Primary branch remains `shift/delegated-v1-stabilization`; the primary worktree is clean at dispatch time.
+- Recreated isolated writer worktrees at `/home/essam/.delegate-worktrees/shift-homepage/{performance,accessibility,launch-hygiene}`, each based on the landed integration commit `41adb40`. Global AGY smoke-test worktrees were left untouched.
+- Wave 2 routing uses independent Gemini headroom: performance → `agy-flash-high`, responsive/accessibility → `agy-pro-high`, launch hygiene → `agy-flash-medium`. Three isolated writers run concurrently; no shared worktree writes.
+- Initial performance and launch relays requested an unsandboxed tool permission before implementation. This was treated as infrastructure/runtime behavior, not model capability. One allowed sandboxed infrastructure retry was issued to each after making existing project dependencies available and explicitly forbidding installs, network, browser startup, and unsandboxed execution.
+- Launch retry completed with a substantive uncommitted diff. Orchestrator review retained its valid metadata/contact/404/discovery cleanup but rejected relative social-image/schema URLs, an SVG Apple icon declaration, a duplicate root 404, and unsupported discovery wording. One bounded implementation repair was dispatched to the same `agy-flash-medium` conversation; review and landing remain pending.
+- Performance retry and the original accessibility relay remain active. Performance has created only disposable probe artifacts so far; none will be landed. Accessibility attempted unavailable install/browser setup and has not yet returned a terminal result; its dependency chain alone remains in flight.
+- Active task states: 6 responsive/accessibility `DISPATCHED`; 7 image delivery/performance `DISPATCHED (infrastructure retry)`; 9 launch hygiene `REPAIR`; 8 motion remains dependency-blocked by 6/7; 10 final QA remains dependency-blocked by 6-9.
