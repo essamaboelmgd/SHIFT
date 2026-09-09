@@ -78,3 +78,14 @@ This queue distinguishes automated verification from explicit user acceptance. N
 - **Manual checks:** Open `/404.html` directly and verify branding, Arabic copy, home/WhatsApp actions, focus states, and mobile layout; preview social metadata text; confirm footer shows only the real AR locale and real contact/social destinations.
 - **Known limitations:** Canonical URL, absolute social image, sitemap URL, and origin-based schema fields remain deployment-only until the production domain is known.
 - **Related follow-up:** Add origin-dependent discovery fields when deployment configuration is available.
+
+## Image Delivery and Performance
+
+- **Status:** `AUTO_VERIFIED — USER REVIEW PENDING`
+- **Commit SHA:** `8c57567`
+- **What changed:** Replaced the two multi-megabyte Selected Work PNG delivery paths with verified existing WebPs, switched The SHIFT aperture to its existing WebP, and added accurate intrinsic dimensions plus lazy/async loading to below-fold project, aperture, and founder imagery.
+- **Important decisions:** Used only existing verified assets instead of publishing nonexistent responsive candidates. Kept the Hero eager/high-priority LCP path and Selected Work’s authoritative mouse/touch/keyboard/swipe state unchanged; removed speculative preloading.
+- **Automated checks:** Five focused image-delivery tests passed; all 12 integrated Node test files passed; production build and diff hygiene passed. Asset dimensions and byte sizes were independently verified.
+- **Manual checks:** Scroll through The SHIFT, Selected Work, and Why SHIFT on desktop/mobile; confirm images appear without layout jumps, visual degradation, or blank frames; cycle Selected Work repeatedly and confirm current/preview images remain coherent; inspect slower-network loading if available.
+- **Known limitations:** No new Lighthouse score is claimed. Existing WebPs are substantially smaller but are not width-responsive candidate sets; further responsive variants can be considered only with a reliable asset-generation pipeline.
+- **Related follow-up:** Re-measure Lighthouse/network transfer during final integrated QA.

@@ -128,3 +128,11 @@ Checkpoint this recovery state, prune only stale Git worktree registrations, rec
 - Performance remains `BLOCKED (AGY infrastructure)`: its partial component diff references responsive AVIF/WebP files that were never written because the resumed worktree was read-only. Probe artifacts and the incomplete diff remain isolated and will not be landed. Per policy, it was not rerouted to Codex.
 - Motion remains `BLOCKED` on performance; final integrated release QA is partially blocked on performance/motion, while all independent launch/accessibility work was continued and landed.
 - Integrated gate after Wave 2 subset: 11/11 Node test files PASS; production build PASS (45 modules; CSS 236.50 kB / 40.09 kB gzip; JS 199.76 kB / 62.33 kB gzip); diff hygiene PASS.
+
+## Performance recovery completion — 2026-09-09
+
+- Reused `/home/essam/.delegate-worktrees/shift-homepage/performance` but created a fresh AGY project/conversation as required; stale conversation IDs were not resumed. Route: `agy-flash-high` because the task was bounded multi-file asset/performance work and Gemini retained full headroom.
+- The fresh run timed out with the old partial still referencing nonexistent candidates. One bounded delta repair in that new conversation simplified delivery to verified pre-existing WebPs, removed speculative source sets/preloading, added intrinsic dimensions and below-fold lazy/async loading, and preserved the Hero LCP path plus Selected Work interaction architecture.
+- Orchestrator removed only zero-byte probe artifacts, reviewed the terminal diff once, verified actual image dimensions/bytes, and ran the gates. Selected Work payload sources changed from 4.58 MB + 2.81 MB PNGs to 117,920 B + 200,366 B WebPs; aperture uses its existing 252,382 B WebP; portrait retains its 62,756 B WebP.
+- Performance landed as `8c57567` (`perf: reduce below-fold image payload`). Integrated gates: 12/12 Node test files PASS; production build PASS (45 modules; CSS 236.50 kB / 40.09 kB gzip; JS 199.88 kB / 62.37 kB gzip); diff hygiene PASS.
+- Task 7 is `AUTO_VERIFIED — USER_REVIEW_PENDING`. Task 8 Motion is now unblocked; Task 10 final QA remains dependent on Motion.
