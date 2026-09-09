@@ -89,3 +89,14 @@ This queue distinguishes automated verification from explicit user acceptance. N
 - **Manual checks:** Scroll through The SHIFT, Selected Work, and Why SHIFT on desktop/mobile; confirm images appear without layout jumps, visual degradation, or blank frames; cycle Selected Work repeatedly and confirm current/preview images remain coherent; inspect slower-network loading if available.
 - **Known limitations:** No new Lighthouse score is claimed. Existing WebPs are substantially smaller but are not width-responsive candidate sets; further responsive variants can be considered only with a reliable asset-generation pipeline.
 - **Related follow-up:** Re-measure Lighthouse/network transfer during final integrated QA.
+
+## Coherent Motion System
+
+- **Status:** `AUTO_VERIFIED — USER REVIEW PENDING`
+- **Commit SHA:** `5a98ad8`
+- **What changed:** Added a shared vocabulary for common interactive durations/easing, applied it selectively to navigation/CTA/Selected Work/service feedback, and strengthened the global reduced-motion path to neutralize animations, transitions, delays, and smooth scrolling.
+- **Important decisions:** Kept section entrance timing and Selected Work’s specialized authoritative timeline intact where they were already tuned; removed only redundant reduced-motion overrides. No layout, content, or product state changed.
+- **Automated checks:** 14 focused motion regressions passed; the full 58-test Node matrix passed; production build and diff hygiene passed.
+- **Manual checks:** Scroll the full page at normal motion and confirm entrances feel restrained and related; hover/focus navigation, CTAs, service rows, Selected Work preview/link, Process controls, and FAQ; enable OS/browser reduced motion and confirm content appears immediately, controls remain usable, no ambient/entrance animation persists, and anchor navigation no longer smooth-scrolls.
+- **Known limitations:** Motion taste and physical-device perception require user review; no autoplay/parallax/scroll-jacking was added.
+- **Related follow-up:** Recheck motion and reduced-motion during final integrated browser QA.

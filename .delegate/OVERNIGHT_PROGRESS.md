@@ -136,3 +136,10 @@ Checkpoint this recovery state, prune only stale Git worktree registrations, rec
 - Orchestrator removed only zero-byte probe artifacts, reviewed the terminal diff once, verified actual image dimensions/bytes, and ran the gates. Selected Work payload sources changed from 4.58 MB + 2.81 MB PNGs to 117,920 B + 200,366 B WebPs; aperture uses its existing 252,382 B WebP; portrait retains its 62,756 B WebP.
 - Performance landed as `8c57567` (`perf: reduce below-fold image payload`). Integrated gates: 12/12 Node test files PASS; production build PASS (45 modules; CSS 236.50 kB / 40.09 kB gzip; JS 199.88 kB / 62.37 kB gzip); diff hygiene PASS.
 - Task 7 is `AUTO_VERIFIED — USER_REVIEW_PENDING`. Task 8 Motion is now unblocked; Task 10 final QA remains dependent on Motion.
+
+## Motion completion — 2026-09-10
+
+- Created `/home/essam/.delegate-worktrees/shift-homepage/motion` from `ef4b0a3` and dispatched a fresh sandboxed `agy-sonnet` conversation. Routing reason: nuanced approved frontend/CSS motion refinement with no redesign authority.
+- Sonnet delivered a narrow two-file change: shared interactive motion tokens, selective token adoption, authoritative global reduced-motion coverage for transitions/animations/smooth scrolling, removal of redundant local overrides, and focused regression coverage. No accepted layout, content, or interaction state architecture changed.
+- Worker verification: 58/58 Node tests PASS and diff hygiene PASS. The worker could not run `tsc` because the worktree inherited a broken `node_modules -> ../frontend2/node_modules` symlink. Orchestrator corrected only that worktree-local dependency link, then the missing production build and diff check passed without rerunning the unchanged successful test matrix.
+- Motion landed as `5a98ad8` (`feat: unify homepage motion behavior`). Status: `AUTO_VERIFIED — USER_REVIEW_PENDING`. Final integrated release QA is now unblocked.
