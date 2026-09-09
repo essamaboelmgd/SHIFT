@@ -7,7 +7,7 @@
 
 ## Current task
 
-Fleet V2 resumed run: Selected Work is user-rejected/reopened and requires root-cause repair; Process redesign is independent and may proceed in parallel. Mobile Hero and What We Build are manually accepted and remain closed unless integration regresses them.
+Fleet V2 recovery after Codex-capacity interruption. Work through order/chapter integration is landed at `41adb40`. Wave 2 (performance, responsive/accessibility, launch hygiene) was interrupted before any commit; its `/tmp` worktrees and relay artifacts were removed by the environment, so no unintegrated implementation remains recoverable. Recreate only those three tasks using the repaired sandboxed Antigravity runtime.
 
 ## Resumed-run provider snapshot
 
@@ -25,11 +25,11 @@ Fleet V2 resumed run: Selected Work is user-rejected/reopened and requires root-
 | 2 | What We Build | `luna-max` (weight 1) | Bounded responsive interaction and CSS | 0 | prior run | `USER_ACCEPTED` |
 | 3R | Selected Work repair | `agy-sonnet` → `terra-medium` | Sonnet was best fit but headless command permission failed; root cause then made Terra Medium sufficient | 0 | isolated worktree, parallel wave 1 | `AUTO_VERIFIED — USER_REVIEW_PENDING` |
 | 4 | Process redesign | `agy-sonnet` → `terra-low` | Sonnet was best fit but returned no implementation; broader clear frontend work rerouted to Terra Low | 0 | isolated worktree, parallel wave 1 | `AUTO_VERIFIED — USER_REVIEW_PENDING` |
-| 5 | Order and chapter integration | `luna-high` (weight 1) | Small bounded integration | 1-4 | serial | pending |
-| 6 | Responsive, legibility, accessibility | `terra-high` (weight 2) | Cross-section multi-file QA/fixes | 1-5 | serial | pending |
-| 7 | Image delivery and performance | `terra-high` (weight 2) | Asset pipeline plus measured loading changes | 3, 5 | serial | pending |
+| 5 | Order and chapter integration | `luna-high` | Small bounded integration | 1-4 | isolated worktree, landed | `AUTO_VERIFIED — USER_REVIEW_PENDING` |
+| 6 | Responsive, legibility, accessibility | `terra-medium` interrupted → `agy-pro-high` recovery | Broad audit/implementation; Codex run ended on capacity and its ephemeral diff was lost | 1-5 | recreate isolated worktree | pending recovery |
+| 7 | Image delivery and performance | `terra-low` interrupted → `agy-flash-high` recovery | Clear assets/performance work; Codex stopped before implementation | 3, 5 | recreate isolated worktree | pending recovery |
 | 8 | Motion system | `terra-high` (weight 2) | Cross-section behavior after layout stabilizes | 1-7 | serial | pending |
-| 9 | SEO/discovery/404/content hygiene | `luna-max` (weight 1) | Bounded metadata/static files/link audit | 5 | serial | pending |
+| 9 | SEO/discovery/404/content hygiene | `luna-max` interrupted → `agy-flash-medium` recovery | Mechanical metadata/static/content hygiene; Codex stopped before implementation | 5 | recreate isolated worktree | pending recovery |
 | 10 | Final release QA | orchestrator, optional `sol-review-high` | Integrated diff review, gates, browsers, Lighthouse | all | serial | pending |
 
 ## Completed commits
@@ -41,6 +41,8 @@ Fleet V2 resumed run: Selected Work is user-rejected/reopened and requires root-
 - `80a7821` — `docs: reopen selected work stabilization`
 - `e975620` — `fix: repair selected work pointer navigation`
 - `706ecaa` — `feat: make process route interactive`
+- `73bbe6d` — `docs: record first stabilization wave`
+- `41adb40` — `fix: align homepage order and chapters`
 
 ## Gates and measurements
 
@@ -66,6 +68,7 @@ Fleet V2 resumed run: Selected Work is user-rejected/reopened and requires root-
 - Resumed-run Selected Work root cause: `.selected-work__stage` captured real mouse pointers on `pointerdown`, retargeting `pointerup`, `mouseup`, and `click` away from the nested NEXT/PREV button to the stage. Center hit-testing itself was correct; no overlay intercepted the control.
 - Selected Work repair gates: focused 5-test suite PASS, production build PASS, diff hygiene PASS. Independent real-coordinate CDP mouse cycles at 1440x900 and 1280x800 confirmed visible/enabled controls, center `elementFromPoint` button ancestry, native button pointer completion, repeated 01↔02 navigation, and restored NEXT/PREV response. Delegate additionally verified touch swipe, keyboard, reduced motion, mobile synchronization, and no overflow.
 - Process redesign gates: focused tests PASS, production build PASS, diff hygiene PASS. Independent real-coordinate CDP checks at 1440x900 and 390x844 cycled ALIGN→SHAPE→BUILD→ALIGN, confirmed synchronized active word/number/pressed state, settled 44x44 marker targets, large ruled-row controls, and zero horizontal overflow.
+- Order/chapter integration gates: focused order/hash/ID audit PASS; production build PASS; 8/9 aggregate test files passed with only the known stale footer expectation. Final order is Hero, The SHIFT, What We Build, Selected Work, Process, Why SHIFT, FAQ, Your Next Move, Footer; Hero's stale `#about` target was corrected to `#why-shift`.
 
 ## Failures / escalations
 
@@ -74,6 +77,8 @@ Fleet V2 resumed run: Selected Work is user-rejected/reopened and requires root-
 - The `sol-medium` relay exited non-zero after a transient duplicate-target `apply_patch` rejection and later hit its Codex usage limit, but the same session had already written the complete implementation and verification artifacts. Orchestrator review found no remaining defect, so no repair retry or escalation was used.
 - Fleet V2 Antigravity wave failed for environmental permission reasons: Selected Work and the read-only Gemini audit were auto-denied command access in headless mode; Process returned an incomplete inspection line and no diff. No full-access bypass was enabled. Selected Work rerouted to `terra-medium`; Process rerouted to `terra-low`.
 - Process Terra Low had one transient duplicate-target patch rejection and recovered. Orchestrator review found undersized marker hit targets; one bounded same-session repair enlarged hit boxes while keeping glyph scale, then gates/browser checks passed.
+- First Wave 2 Codex dispatches were interrupted by Codex capacity exhaustion. Performance produced only an untracked measurement helper; launch hygiene produced no diff; accessibility had an uncommitted partial Hero/CSS/test diff. Before this recovery run, the environment removed all three `/tmp` worktree directories and their relay `result.json` artifacts, so the uncommitted partials are not recoverable and were never landed.
+- Antigravity infrastructure was subsequently repaired and independently smoke-tested by the user: sandboxed delegated worktrees under `/tmp` and `/home/essam/.delegate-worktrees` are writable. Recovery dispatches must use `agy-delegate --sandbox`; no bypass or global configuration changes are authorized.
 
 ## Blockers
 
@@ -89,16 +94,18 @@ None. Production domain and deployment provider remain to be discovered from rep
 - Coherent motion depends on stabilized layout, performance, and accessibility work.
 - Final integrated release QA depends on every implementation workstream.
 
-## Resumed-run worktree plan
+## Worktree history and recovery plan
 
-- `.delegate/worktrees/selected-work-repair` — isolated Selected Work writer.
-- `.delegate/worktrees/process-redesign` — isolated Process writer.
-- No concurrent writer is permitted in the primary working tree.
+- Prior sprint writers used `/tmp/shift-selected-work-repair`, `/tmp/shift-process-redesign`, and `/tmp/shift-order-integration`; their commits were landed, then the directories disappeared and Git metadata became prunable.
+- Interrupted `/tmp/shift-performance`, `/tmp/shift-accessibility`, and `/tmp/shift-launch-hygiene` directories also disappeared; no task commit exists on those branches.
+- Recovery worktrees will use `/home/essam/.delegate-worktrees/shift-homepage/{performance,accessibility,launch-hygiene}`.
+- Global smoke-test worktrees are infrastructure-owned and will not be modified by this project run.
+- No concurrent writer is permitted in the same working tree.
 
 ## Remaining work
 
-Selected Work repair and workstreams 4-10 remain. Workstreams 1-2 are user accepted.
+Workstreams 6-10 remain. Workstreams 1-2 are user accepted; 3R, 4, and 5 are auto-verified/user-review pending.
 
 ## Resume point
 
-Resume at wave 1 dispatch after creating isolated worktrees and self-contained briefs. Do not reopen Mobile Hero or What We Build absent an integrated regression.
+Checkpoint this recovery state, prune only stale Git worktree registrations, recreate Wave 2 worktrees from `41adb40`, then dispatch sandboxed Antigravity lanes. Do not reopen Mobile Hero or What We Build absent an integrated regression.

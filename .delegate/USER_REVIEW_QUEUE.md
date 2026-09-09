@@ -45,3 +45,14 @@ This queue distinguishes automated verification from explicit user acceptance. N
 - **Manual checks:** Confirm desktop hierarchy and route-marker feel; activate ALIGN/SHAPE/BUILD through markers and rows; keyboard-tab and activate each control; verify mobile vertical composition at phone widths; confirm no clipping and that motion feels restrained.
 - **Known limitations:** Final visual taste and physical pointer/touch feel require user review. The full Node suite still contains the known stale footer expectation pending content hygiene.
 - **Related follow-up:** Chapter number will be corrected during order integration; cross-section reduced-motion/accessibility will be rechecked later.
+
+## Homepage Order and Chapter Integration
+
+- **Status:** `AUTO_VERIFIED — USER REVIEW PENDING`
+- **Commit SHA:** `41adb40`
+- **What changed:** Corrected the rendered sequence to Hero, The SHIFT, What We Build, Selected Work, Process, Why SHIFT, FAQ, Your Next Move, Footer; corrected Process to chapter 05 and the Hero About navigation target to `#why-shift`.
+- **Important decisions:** Preserved existing section IDs and labels; kept Footer unnumbered and testimonials absent; avoided redesign/style changes.
+- **Automated checks:** Focused order/chapter/static-ID/hash audit passed; production build passed; full suite had only the known stale footer expectation.
+- **Manual checks:** Scroll the complete page and confirm the narrative sequence; use desktop/mobile navigation links; confirm chapter numbers 01–08 and no testimonial section.
+- **Known limitations:** The stale footer test is deferred to the launch/content-hygiene workstream; final integrated navigation/visual acceptance remains pending.
+- **Related follow-up:** Recheck after performance, accessibility, launch hygiene, and motion integration.
