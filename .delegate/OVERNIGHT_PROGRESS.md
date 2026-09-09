@@ -7,17 +7,24 @@
 
 ## Current task
 
-Selected Work verified and ready to land. Stop after this workstream per the resumed-run instruction.
+Fleet V2 resumed run: Selected Work is user-rejected/reopened and requires root-cause repair; Process redesign is independent and may proceed in parallel. Mobile Hero and What We Build are manually accepted and remain closed unless integration regresses them.
+
+## Resumed-run provider snapshot
+
+- OpenAI Codex: 69% five-hour / 60% weekly remaining.
+- Antigravity Gemini: 100% five-hour / 100% weekly remaining.
+- Antigravity Claude/GPT: 100% five-hour / 100% weekly remaining.
+- Routing policy: point-in-time guidance only; spread suitable work across providers without draining Codex first.
 
 ## Task graph and routing
 
 | Order | Workstream | Lane | Why | Dependencies | Execution | Status |
 | --- | --- | --- | --- | --- | --- | --- |
 | 0 | Inspection, baseline, graph | orchestrator | Repository-grounded planning and measurement | none | serial | complete |
-| 1 | Mobile Hero | `luna-max` (weight 1) | Bounded responsive/Safari layout reasoning | 0 | serial | complete |
-| 2 | What We Build | `luna-max` (weight 1) | Bounded responsive interaction and CSS | 0 | serial | complete |
-| 3 | Selected Work | `sol-medium` (weight 3) | Difficult transition state/data-flow debugging and mobile re-layout | 0 | serial | complete; verified locally |
-| 4 | Process redesign | `terra-high` (weight 2) | Multi-file interactive section redesign | 0 | serial | pending |
+| 1 | Mobile Hero | `luna-max` (weight 1) | Bounded responsive/Safari layout reasoning | 0 | prior run | `USER_ACCEPTED` |
+| 2 | What We Build | `luna-max` (weight 1) | Bounded responsive interaction and CSS | 0 | prior run | `USER_ACCEPTED` |
+| 3R | Selected Work repair | `agy-sonnet` | Nuanced approved mobile composition plus mouse/pointer implementation; Claude pool has full headroom | 0 | isolated worktree, parallel wave 1 | `USER_REJECTED / REOPENED` |
+| 4 | Process redesign | `agy-sonnet` | Nuanced approved frontend composition and responsive CSS; independent section scope | 0 | isolated worktree, parallel wave 1 | pending |
 | 5 | Order and chapter integration | `luna-high` (weight 1) | Small bounded integration | 1-4 | serial | pending |
 | 6 | Responsive, legibility, accessibility | `terra-high` (weight 2) | Cross-section multi-file QA/fixes | 1-5 | serial | pending |
 | 7 | Image delivery and performance | `terra-high` (weight 2) | Asset pipeline plus measured loading changes | 3, 5 | serial | pending |
@@ -64,10 +71,26 @@ Selected Work verified and ready to land. Stop after this workstream per the res
 
 None. Production domain and deployment provider remain to be discovered from repository evidence.
 
+## Resumed-run dependency graph
+
+- Wave 1 independent: Selected Work repair; Process redesign; read-only launch/content audit.
+- Order/chapter integration depends on Selected Work and Process landing.
+- Image delivery/performance depends on repaired Selected Work and can then run alongside order integration.
+- Responsive/legibility/accessibility depends on order integration and all primary section layouts.
+- SEO/discovery/404 implementation depends on order integration, but its audit is independent.
+- Coherent motion depends on stabilized layout, performance, and accessibility work.
+- Final integrated release QA depends on every implementation workstream.
+
+## Resumed-run worktree plan
+
+- `.delegate/worktrees/selected-work-repair` — isolated Selected Work writer.
+- `.delegate/worktrees/process-redesign` — isolated Process writer.
+- No concurrent writer is permitted in the primary working tree.
+
 ## Remaining work
 
-Workstreams 4-10 remain pending. Workstreams 1-3 are complete.
+Selected Work repair and workstreams 4-10 remain. Workstreams 1-2 are user accepted.
 
 ## Resume point
 
-Resume with Process redesign only when explicitly requested. Selected Work is complete; do not repeat its investigation or verification unless its files change.
+Resume at wave 1 dispatch after creating isolated worktrees and self-contained briefs. Do not reopen Mobile Hero or What We Build absent an integrated regression.
