@@ -327,7 +327,10 @@ export default function SelectedWorkSection() {
 
   const handlePointerDown = (event: PointerEvent<HTMLDivElement>) => {
     if (transitionLockRef.current) return
-    if (event.pointerType === 'mouse' && event.button !== 0) return
+    // Keep desktop clicks native: capturing a mouse pointer from the stage retargets
+    // the button's pointerup/click back to the stage. Touch alone needs capture so a
+    // swipe that leaves the stage can still be completed consistently.
+    if (event.pointerType !== 'touch') return
     pointerStartRef.current = event.clientX
     try {
       event.currentTarget.setPointerCapture?.(event.pointerId)

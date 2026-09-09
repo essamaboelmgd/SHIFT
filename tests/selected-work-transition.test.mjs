@@ -30,6 +30,14 @@ test('Selected Work routes every interaction through the same locked navigation 
   assert.match(source, /reducedMotion[\s\S]*commitIndex/)
 })
 
+test('Selected Work reserves pointer capture for touch swipe tracking so mouse button clicks retain their native target', async () => {
+  const source = await read('src/components/SelectedWorkSection.tsx')
+
+  assert.match(source, /if \(event\.pointerType !== 'touch'\) return/)
+  assert.match(source, /event\.currentTarget\.setPointerCapture\?\.\(event\.pointerId\)/)
+  assert.doesNotMatch(source, /if \(event\.pointerType === 'mouse' && event\.button !== 0\) return[\s\S]{0,220}setPointerCapture/)
+})
+
 test('Selected Work keeps truthful project links and proof', async () => {
   const source = await read('src/components/SelectedWorkSection.tsx')
 
@@ -56,5 +64,8 @@ test('Selected Work mobile flow is active visual, local metadata, preview, then 
   assert.match(css, /@media \(max-width: 899px\)[\s\S]*\.selected-work__stage-footer\s*\{[\s\S]*order:\s*2/)
   assert.match(css, /@media \(max-width: 899px\)[\s\S]*\.selected-work__preview-sheet\s*\{[\s\S]*order:\s*3/)
   assert.match(css, /@media \(max-width: 899px\)[\s\S]*\.selected-work__control-rail\s*\{[\s\S]*order:\s*4/)
+  assert.match(css, /\.selected-work__visuals\s*\{[\s\S]*aspect-ratio:\s*1\.28/)
+  assert.match(css, /\.selected-work__stage-footer\s*\{[\s\S]*min-height:\s*clamp\(140px, 42vw, 158px\)/)
+  assert.match(css, /\.selected-work__preview-sheet\s*\{[\s\S]*width:\s*min\(66%, 250px\)[\s\S]*height:\s*88px/)
   assert.match(css, /overflow-x:\s*clip/)
 })

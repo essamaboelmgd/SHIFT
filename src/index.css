@@ -11710,24 +11710,24 @@ a:focus-visible {
   .selected-work__visuals {
     order: 1;
     width: 100%;
-    aspect-ratio: 1.45;
+    aspect-ratio: 1.28;
   }
 
   .selected-work__stage.is-transitioning .selected-work__visuals {
-    aspect-ratio: 1.45;
+    aspect-ratio: 1.28;
   }
 
   .selected-work__stage-footer {
     order: 2;
-    min-height: 176px;
+    min-height: clamp(140px, 42vw, 158px);
     margin-top: 0;
-    padding: 18px 4px 10px;
+    padding: 16px 4px 6px;
     overflow: hidden;
     background: transparent;
   }
 
   .selected-work__stage.is-transitioning .selected-work__stage-footer {
-    min-height: 176px;
+    min-height: clamp(140px, 42vw, 158px);
   }
 
   .selected-work__stage.is-transitioning .selected-work__stage-footer .selected-work__footer-layer {
@@ -11764,33 +11764,33 @@ a:focus-visible {
     order: 3;
     bottom: auto;
     left: auto;
-    width: min(74%, 280px);
-    height: 104px;
-    margin: 10px 0 0 auto;
+    width: min(66%, 250px);
+    height: 88px;
+    margin: 4px 0 0 auto;
     border-radius: 14px 2px 14px 2px;
   }
 
   .selected-work__preview-label {
-    top: 13px;
+    top: 11px;
     right: 14px;
   }
 
   .selected-work__preview-title {
     right: 14px;
-    bottom: 15px;
+    bottom: 13px;
     font-size: 18px;
   }
 
   .selected-work__preview-marker {
     right: 14px;
-    bottom: 15px;
+    bottom: 13px;
     font-size: 16px;
   }
 
   .selected-work__control-rail {
     order: 4;
-    margin-top: 13px;
-    padding-top: 9px;
+    margin-top: 8px;
+    padding-top: 8px;
     border-top: 1px solid rgba(247, 244, 239, 0.1);
   }
 
