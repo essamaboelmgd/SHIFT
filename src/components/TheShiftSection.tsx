@@ -1,5 +1,4 @@
-const desktopAperture = '/assets/shift-premium-signal-aperture.png'
-const mobileAperture = desktopAperture
+const desktopAperture = '/assets/shift-premium-signal-aperture.webp'
 const desktopOuterOrbit = '/assets/shift-premium-orbit-outer.svg'
 const mobileOuterOrbit = '/assets/shift-premium-orbit-outer-mobile.svg'
 const secondaryOrbit = '/assets/shift-premium-orbit-secondary.svg'
@@ -34,10 +33,16 @@ function SignalArtwork() {
       role="img"
       aria-label="بوابة دائرية داكنة يخرج منها مسار ضوئي برتقالي"
     >
-      <picture className="shift-signal__aperture">
-        <source media="(max-width: 860px)" srcSet={mobileAperture} />
-        <img src={desktopAperture} alt="" aria-hidden="true" />
-      </picture>
+      <img
+        className="shift-signal__aperture"
+        src={desktopAperture}
+        width={1254}
+        height={1254}
+        loading="lazy"
+        decoding="async"
+        alt=""
+        aria-hidden="true"
+      />
       <picture className="shift-signal__outer-orbit">
         <source media="(max-width: 860px)" srcSet={mobileOuterOrbit} />
         <img src={desktopOuterOrbit} alt="" aria-hidden="true" />

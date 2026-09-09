@@ -18,6 +18,8 @@ export type SelectedWorkProject = {
   alt: string
   projectUrl?: string
   proof?: string
+  width: number
+  height: number
 }
 
 const FALLBACK_IMAGE = '/assets/shift-glass-field.png'
@@ -30,18 +32,22 @@ export const projects: SelectedWorkProject[] = [
     title: 'KUPECUT',
     category: 'PRODUCT BUILD',
     shortResult: 'تجربة رقمية أوضح تخلي الخدمة أسهل في الفهم والبداية.',
-    image: '/assets/selected-work/kupecut.png',
+    image: '/assets/selected-work/kupecut.webp',
     alt: 'لقطة من موقع Kupecut',
     projectUrl: 'https://kupecut.com',
     proof: '14K+ users',
+    width: 5096,
+    height: 2588,
   },
   {
     slug: 'argossecops',
     title: 'ARGOS SECOPS',
     category: 'SECURITY PLATFORM',
     shortResult: 'حضور رقمي يترجم الخبرة المعقدة إلى ثقة أوضح.',
-    image: '/assets/selected-work/argos.png',
+    image: '/assets/selected-work/argos.webp',
     alt: 'لقطة من موقع Argos SecOps',
+    width: 3814,
+    height: 1934,
   },
 ]
 
@@ -132,6 +138,10 @@ function SheetVisual({ project, projectIndex, className, decorative = false, sty
         <span className="selected-work__sheet-index" dir="ltr">{formatIndex(projectIndex)} / PROJECT</span>
         <img
           src={project.image}
+          width={project.width}
+          height={project.height}
+          loading="lazy"
+          decoding="async"
           alt={decorative ? '' : project.alt}
           aria-hidden={decorative ? true : undefined}
           onError={handleImageError}
