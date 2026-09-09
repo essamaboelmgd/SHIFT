@@ -58,7 +58,6 @@ export default function TheShiftSection() {
       <div className="shift-signal__grid" aria-hidden="true" />
       <div className="shift-signal__glow shift-signal__glow--orange" aria-hidden="true" />
       <div className="shift-signal__glow shift-signal__glow--warm" aria-hidden="true" />
-      {/*<div className="shift-signal__watermark" aria-hidden="true">SHIFT</div>*/}
       <div className="shift-signal__inner">
         <header className="shift-signal__topline">
           <p className="shift-signal__eyebrow" dir="ltr"><span className="shift-signal__eyebrow-dot" />02 / THE SHIFT</p>
@@ -86,7 +85,6 @@ export default function TheShiftSection() {
           <div className="shift-signal__artwork-slot">
             <span className="shift-signal__artwork-frame" aria-hidden="true" />
             <SignalArtwork />
-            {/*<p className="shift-signal__signal-tag" dir="ltr">SIGNAL / 02</p>*/}
             <p className="shift-signal__artwork-note" dir="ltr">A BETTER SIGNAL<br />FOR WHAT COMES NEXT</p>
           </div>
         </div>

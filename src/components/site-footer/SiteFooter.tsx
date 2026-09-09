@@ -119,8 +119,6 @@ export default function SiteFooter() {
             <h2 id="footer-language-title"><span aria-hidden="true" /> اللغة</h2>
             <div className="site-footer__language-options" dir="ltr" aria-label="اللغة الحالية">
               <span className="is-active" lang="ar" aria-current="true">AR</span>
-              <i aria-hidden="true">/</i>
-              <span lang="en" aria-disabled="true">EN</span>
             </div>
           </section>
         </div>
