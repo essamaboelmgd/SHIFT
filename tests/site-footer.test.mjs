@@ -18,6 +18,9 @@ test('footer uses configured data, the real logo, and semantic navigation', asyn
   assert.match(component, /filter\(\(item\) => Boolean\(item\.url\)\)/)
   assert.match(component, /target="_blank"/)
   assert.match(component, /rel="noopener noreferrer"/)
+  assert.match(component, /function SocialIcon/)
+  assert.match(component, /<SocialIcon platform=\{item\.platform\} \/>/)
+  assert.doesNotMatch(component, /\{item\.shortLabel\}/)
   assert.match(config, /shift\.software\.eg@gmail\.com/)
   assert.match(config, /\+20 155 6538 323/)
   assert.match(config, /https:\/\/wa\.me\/201556538323/)
@@ -26,6 +29,17 @@ test('footer uses configured data, the real logo, and semantic navigation', asyn
   assert.match(config, /href: '#process'/)
   assert.match(config, /href: '#why-shift'/)
   assert.match(config, /href: '#contact'/)
+})
+
+test('footer social links use configured platforms rather than text abbreviations', async () => {
+  const config = await read('src/components/site-footer/siteFooterConfig.ts')
+
+  assert.match(config, /platform: 'linkedin'/)
+  assert.match(config, /platform: 'tiktok'/)
+  assert.match(config, /platform: 'instagram'/)
+  assert.match(config, /platform: 'facebook'/)
+  assert.match(config, /platform: 'youtube'/)
+  assert.doesNotMatch(config, /shortLabel:/)
 })
 
 test('footer is isolated and integrated after the project brief', async () => {

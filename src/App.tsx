@@ -8,6 +8,7 @@ import WhyShiftSection from './components/WhyShiftSection'
 import FaqSection from './components/FaqSection'
 import ProjectBriefSection from './components/project-brief/ProjectBriefSection'
 import SiteFooter from './components/site-footer/SiteFooter'
+import StickyNav from './components/StickyNav'
 
 export default function App() {
   useEffect(() => {
@@ -42,6 +43,7 @@ export default function App() {
   return (
     <div className="site-shell">
       <ShiftHero />
+      <StickyNav />
       <TheShiftSection />
       <WhatWeBuildSection />
       <SelectedWorkSection />

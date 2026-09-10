@@ -230,16 +230,29 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   border: 1px solid rgba(247, 244, 239, 0.18);
   border-radius: 4px;
   color: rgba(247, 244, 239, 0.76);
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0;
   transition: border-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.site-footer__social-links svg {
+  width: 19px;
+  height: 19px;
+  fill: currentColor;
+}
+
+.site-footer__social-links svg rect,
+.site-footer__social-links svg circle:not(.site-footer__social-dot) {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+}
+
+.site-footer__social-links svg .site-footer__social-dot {
+  fill: currentColor;
 }
 
 .site-footer__social-links a:hover,

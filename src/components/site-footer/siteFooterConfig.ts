@@ -1,6 +1,6 @@
 export type FooterSocialLink = {
   label: string
-  shortLabel: string
+  platform: 'linkedin' | 'tiktok' | 'instagram' | 'facebook' | 'youtube'
   url: string
 }
 
@@ -23,13 +23,12 @@ export const footerNavigation = [
 
 // Add real URLs here; entries with an empty URL are intentionally not rendered.
 export const footerSocialLinks: ReadonlyArray<FooterSocialLink> = [
-  { label: 'LinkedIn', shortLabel: 'in', url: 'https://www.linkedin.com/company/shift-software-eg' },
-  { label: 'TikTok', shortLabel: 'TT', url: 'https://www.tiktok.com/@shift.software.eg' },
-  { label: 'Instagram', shortLabel: 'IG', url: 'https://www.instagram.com/shift.software.eg' },
-  { label: 'Facebook', shortLabel: 'FB', url: 'https://www.facebook.com/shift.software.eg' },
-  { label: 'YouTube', shortLabel: 'YT', url: 'https://www.youtube.com/@shift.software' },
+  { label: 'LinkedIn', platform: 'linkedin', url: 'https://www.linkedin.com/company/shift-software-eg' },
+  { label: 'TikTok', platform: 'tiktok', url: 'https://www.tiktok.com/@shift.software.eg' },
+  { label: 'Instagram', platform: 'instagram', url: 'https://www.instagram.com/shift.software.eg' },
+  { label: 'Facebook', platform: 'facebook', url: 'https://www.facebook.com/shift.software.eg' },
+  { label: 'YouTube', platform: 'youtube', url: 'https://www.youtube.com/@shift.software' },
 ]
-
 
 
 
