@@ -408,54 +408,56 @@
 @media (max-width: 760px) {
   .site-footer__canvas {
     width: 100%;
-    padding: 58px 22px 18px;
+    padding: 36px 20px 14px;
   }
 
   .site-footer__brand {
     grid-template-columns: minmax(0, 1fr);
-    gap: 34px;
+    gap: 16px;
     min-height: 0;
   }
 
   .site-footer__wordmark {
-    width: 190px;
+    width: 160px;
+    order: 1;
   }
 
   .site-footer__brand-copy {
     text-align: right;
+    order: 2;
   }
 
   .site-footer__statement {
-    max-width: 13ch;
-    font-size: clamp(32px, 9.8vw, 42px);
-    line-height: 1.42;
+    max-width: 14ch;
+    font-size: clamp(30px, 8.8vw, 38px);
+    line-height: 1.28;
   }
 
   .site-footer__statement-en {
     max-width: 30ch;
-    margin-top: 15px;
-    font-size: 10px;
+    margin-top: 8px;
+    font-size: 9px;
     letter-spacing: 0.2em;
-    line-height: 1.7;
+    line-height: 1.5;
     text-align: right;
   }
 
   .site-footer__signal-rule {
-    margin-top: 42px;
+    margin-top: 24px;
   }
 
   .site-footer__nav {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     min-height: 0;
-    padding: 24px 0;
+    padding: 8px 0 10px;
   }
 
   .site-footer__nav a {
     justify-content: flex-start;
-    min-height: 48px;
-    padding: 0 12px;
-    font-size: 17px;
+    min-height: 44px;
+    padding: 0 8px;
+    font-size: 16px;
   }
 
   .site-footer__nav a + a::after {
@@ -463,26 +465,53 @@
   }
 
   .site-footer__information {
+    display: flex;
+    flex-direction: column;
     grid-template-columns: minmax(0, 1fr);
     gap: 0;
-    padding: 16px 0 28px;
+    padding: 4px 0 8px;
   }
 
   .site-footer__group {
-    padding: 30px 0;
+    padding: 12px 0;
     border-bottom: 1px solid rgba(247, 244, 239, 0.09);
     text-align: right;
+  }
+
+  .site-footer__contact {
+    order: 1;
+  }
+
+  .site-footer__social {
+    order: 2;
+  }
+
+  .site-footer__language {
+    order: 3;
+    border-bottom: 0;
   }
 
   .site-footer__group h2,
   .site-footer__social h2,
   .site-footer__language h2 {
     justify-content: flex-start;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
+  }
+
+  .site-footer__contact a {
+    max-width: 100%;
+    min-height: 44px;
+    gap: 10px;
+    font-size: clamp(13px, 3.5vw, 15px);
+  }
+
+  .site-footer__contact a span {
+    overflow-wrap: anywhere;
   }
 
   .site-footer__social-links {
     justify-content: flex-end;
+    gap: 14px;
   }
 
   .site-footer__social-empty {
@@ -496,9 +525,9 @@
   .site-footer__baseline {
     align-items: flex-start;
     flex-direction: column;
-    gap: 13px;
+    gap: 8px;
     min-height: 0;
-    padding: 26px 0 10px;
+    padding: 16px 0 6px;
     font-size: 9px;
     line-height: 1.8;
   }
