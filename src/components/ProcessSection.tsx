@@ -8,6 +8,24 @@ const processStages = [
 
 type ProcessStage = (typeof processStages)[number]
 
+function ProcessRouteArtwork() {
+  return (
+    <div className="process-route" aria-label="ALIGN route artwork">
+      <div className="process-route__heading"><p dir="ltr">CURRENT STAGE</p><span aria-hidden="true" /></div>
+      <p className="process-route__word" dir="ltr">ALIGN</p>
+      <p className="process-route__sequence" dir="ltr">IDEA&nbsp;&nbsp; → &nbsp;&nbsp;DIRECTION&nbsp;&nbsp; → &nbsp;&nbsp;IMPACT</p>
+      <p className="process-route__ghost" aria-hidden="true">01</p>
+      <div className="process-route__path" aria-hidden="true">
+        <span className="process-route__curve process-route__curve--soft" />
+        <span className="process-route__curve process-route__curve--bright" />
+        <span className="process-route__gate process-route__gate--1 is-origin"><i /><b>01</b></span>
+        <span className="process-route__gate process-route__gate--2"><i /><b>02</b></span>
+        <span className="process-route__gate process-route__gate--3"><i /><b>03</b></span>
+      </div>
+    </div>
+  )
+}
+
 export default function ProcessSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const [hasEntered, setHasEntered] = useState(false)
@@ -30,7 +48,7 @@ export default function ProcessSection() {
 
   return (
     <section ref={sectionRef} className={`process-section${hasEntered ? ' is-visible' : ''}`} id="process" aria-labelledby="process-title">
-      <div className="process-section__canvas" style={progressStyle}>
+      <div className="process-section__canvas">
         <header className="process-section__rail">
           <p className="process-section__chapter" dir="ltr">05 / PROCESS</p>
           <span aria-hidden="true" />
@@ -48,7 +66,7 @@ export default function ProcessSection() {
               <p className="process-section__body">بنبدأ بفهم شغلك والهدف، نرتب الاتجاه والتجربة، وبعدها نبني ونختبر ونطلق.</p>
             </div>
 
-            <div className="process-stage-progress" aria-label="تقدم مراحل العمل">
+            <div className="process-stage-progress" style={progressStyle} aria-label="تقدم مراحل العمل">
               <div className="process-stage-progress__line" aria-hidden="true"><span /></div>
               {processStages.map((stage) => {
                 const isActive = stage.number === activeStage.number
@@ -72,18 +90,7 @@ export default function ProcessSection() {
             </div>
           </div>
 
-          <div className="process-route" aria-live="polite">
-            <div className="process-route__heading"><p dir="ltr">CURRENT STAGE</p><span aria-hidden="true" /></div>
-            <p className="process-route__word" dir="ltr">{activeStage.code}</p>
-            <p className="process-route__sequence" dir="ltr">IDEA&nbsp;&nbsp; → &nbsp;&nbsp;DIRECTION&nbsp;&nbsp; → &nbsp;&nbsp;IMPACT</p>
-            <p className="process-route__ghost" aria-hidden="true">{activeStage.number}</p>
-            <div className="process-route__path" aria-hidden="true">
-              <span className="process-route__curve process-route__curve--soft" />
-              <span className="process-route__curve process-route__curve--bright" />
-              {processStages.map((stage, index) => <span className={`process-route__gate process-route__gate--${index + 1}${index === activeIndex ? ' is-active' : ''}`} key={stage.number}><i /><b>{stage.number}</b></span>)}
-            </div>
-            <div key={activeStage.number} className="process-route__active-copy"><span dir="ltr">{activeStage.number} / {activeStage.code}</span><strong>{activeStage.title}</strong><p>{activeStage.body}</p></div>
-          </div>
+          <ProcessRouteArtwork />
         </div>
 
         <footer className="process-section__footer"><span dir="ltr">A BETTER WEB AHEAD</span><i /><span dir="ltr">SHIFT / PROCESS</span></footer>

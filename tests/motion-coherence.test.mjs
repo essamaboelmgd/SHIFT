@@ -125,13 +125,15 @@ test('WhatWeBuild section has a JS fallback that adds is-visible when Intersecti
   assert.match(source, /setHasEntered\(true\)/)
 })
 
-test('Process stage response is keyed and uses restrained motion', async () => {
+test('Process right artwork has no stage-response animation or remount key', async () => {
   const source = await read('src/components/ProcessSection.tsx')
   const css = await read('src/index.css')
+  const artwork = source.match(/function ProcessRouteArtwork\(\)\s*\{([\s\S]*?)\n\}/)?.[1] ?? ''
+  const repair = css.slice(css.lastIndexOf('/* Process — approved reference repair'))
 
-  assert.match(source, /key=\{activeStage\.number\}/)
-  assert.match(css, /\.process-route__active-copy\s*\{[^}]*animation:\s*process-route-copy-in\s+var\(--dur-interactive/s)
-  assert.match(css, /@keyframes\s+process-route-copy-in/)
+  assert.notEqual(artwork, '', 'the fixed route component should exist')
+  assert.doesNotMatch(artwork, /activeStageNumber|activeStage|activeIndex|isActive|key=/)
+  assert.doesNotMatch(repair, /process-route__active-copy|process-route-copy-in/)
 })
 
 test('Project Brief entrance is observer-gated with a visible fallback', async () => {
