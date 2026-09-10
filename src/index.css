@@ -17,6 +17,7 @@
   --shift-paper: #f7f4ef;
   --shift-muted: #9b938a;
   --shift-line: #3a302b;
+  --shift-anchor-offset: 88px;
 
   /* ── Shared motion vocabulary ──────────────────────────────────────────────
      Hover/interactive feedback uses these tokens.
@@ -37,6 +38,14 @@ html {
   min-width: 320px;
   background: #0a0a0a;
   scroll-behavior: smooth;
+}
+
+#services,
+#work,
+#process,
+#why-shift,
+#contact {
+  scroll-margin-top: var(--shift-anchor-offset);
 }
 
 body {

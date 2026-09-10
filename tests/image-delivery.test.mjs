@@ -49,18 +49,18 @@ test('Selected Work, Aperture, and Why Shift use verified existing WebP assets w
 test('Hero remains eager/high-priority while below-fold images are lazy and async', () => {
   // Hero artwork must remain eager and high priority LCP
   assert.match(heroSource, /loading="eager"/)
-  assert.match(heroSource, /fetchPriority="high"/)
+  assert.match(heroSource, /fetchpriority:\s*['"]high['"]/)
   assert.match(heroSource, /decoding="async"/)
 
   // Selected Work image must be lazy and async, NOT high fetchPriority
   assert.match(selectedWorkSource, /loading="lazy"/)
   assert.match(selectedWorkSource, /decoding="async"/)
-  assert.doesNotMatch(selectedWorkSource, /fetchPriority="high"/)
+  assert.doesNotMatch(selectedWorkSource, /fetchpriority="high"/)
 
   // TheShift aperture must be lazy and async, NOT high fetchPriority
   assert.match(theShiftSource, /loading="lazy"/)
   assert.match(theShiftSource, /decoding="async"/)
-  assert.doesNotMatch(theShiftSource, /fetchPriority="high"/)
+  assert.doesNotMatch(theShiftSource, /fetchpriority="high"/)
 
   // WhyShift portrait must be lazy and async
   assert.match(whyShiftSource, /loading="lazy"/)

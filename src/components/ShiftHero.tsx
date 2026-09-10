@@ -41,7 +41,7 @@ function HeroArtwork({ className }: { className?: string }) {
         width={1672}
         height={941}
         loading="eager"
-        fetchPriority="high"
+        {...{ fetchpriority: 'high' }}
         decoding="async"
         alt=""
         aria-hidden="true"

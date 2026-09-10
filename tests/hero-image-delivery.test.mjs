@@ -20,7 +20,7 @@ test('hero artwork exposes every optimized responsive candidate', () => {
 test('both hero artwork instances are stable high-priority LCP images', () => {
   const artworkCount = component.match(/<HeroArtwork/g)?.length ?? 0
   const eagerCount = component.match(/loading="eager"/g)?.length ?? 0
-  const priorityCount = component.match(/fetchPriority="high"/g)?.length ?? 0
+  const priorityCount = component.match(/fetchpriority:\s*['"]high['"]/g)?.length ?? 0
   const asyncCount = component.match(/decoding="async"/g)?.length ?? 0
   const dimensionCount = component.match(/width=\{1672\}[\s\S]*?height=\{941\}/g)?.length ?? 0
 
