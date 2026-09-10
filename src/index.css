@@ -13421,3 +13421,75 @@ a:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .sticky-nav, .sticky-nav *, .sticky-nav *::before, .sticky-nav *::after { transition-duration: 0.01ms !important; }
 }
+
+/* Shared chapter label vocabulary — typography and rules only. */
+:root {
+  --shift-chapter-size: clamp(9px, 0.7vw, 10px);
+  --shift-chapter-weight: 600;
+  --shift-chapter-tracking: 0.16em;
+  --shift-chapter-line-height: 1.4;
+  --shift-chapter-section-color: var(--shift-orange);
+  --shift-chapter-context-color: rgba(247, 244, 239, 0.56);
+  --shift-chapter-rule-color: rgba(247, 244, 239, 0.14);
+  --shift-chapter-rule-width: 1px;
+  --shift-chapter-rule-gap: clamp(12px, 1.67vw, 24px);
+}
+
+.desktop-meta,
+.shift-signal__eyebrow,
+.what-build__meta,
+.selected-work__meta,
+.process-section__chapter,
+.process-section__context,
+.why-shift__chapter,
+.why-shift__context,
+.faq-section__chapter-index,
+.faq-section__chapter-label,
+.project-brief__topline p,
+.project-brief__chapter,
+.project-brief__context {
+  font-family: var(--font-body);
+  font-size: var(--shift-chapter-size);
+  font-weight: var(--shift-chapter-weight);
+  letter-spacing: var(--shift-chapter-tracking);
+  line-height: var(--shift-chapter-line-height);
+  text-transform: uppercase;
+}
+
+.desktop-meta,
+.what-build__meta,
+.selected-work__meta,
+.process-section__context,
+.why-shift__context,
+.faq-section__chapter-label,
+.project-brief__context {
+  color: var(--shift-chapter-context-color);
+}
+
+.shift-signal__eyebrow,
+.what-build__meta--section,
+.selected-work__meta--section,
+.process-section__chapter,
+.why-shift__chapter,
+.faq-section__chapter-index,
+.project-brief__chapter {
+  color: var(--shift-chapter-section-color);
+}
+
+.what-build__topline,
+.selected-work__topline,
+.why-shift__topline,
+.faq-section__chapter,
+.project-brief__topline {
+  border-bottom-color: var(--shift-chapter-rule-color);
+  border-bottom-width: var(--shift-chapter-rule-width);
+}
+
+.process-section__rail {
+  gap: var(--shift-chapter-rule-gap);
+}
+
+.process-section__rail > span {
+  height: var(--shift-chapter-rule-width);
+  background: var(--shift-chapter-rule-color);
+}
