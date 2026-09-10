@@ -111,3 +111,61 @@ This queue distinguishes automated verification from explicit user acceptance. N
 - **Manual checks:** Review the complete homepage narrative and chapter order; repeat Selected Work NEXT/PREV with a normal physical mouse for several cycles and confirm no dead zone/flashing/desync; verify the deliberate mobile Selected Work hierarchy and swipe on a phone; activate What We Build and Process with pointer/keyboard; inspect focus states, image loading, and motion with reduced motion both off and on; open the branded 404 and verify real links.
 - **Known limitations:** Physical hardware feel and subjective visual/motion acceptance remain yours. No deployment or fresh Lighthouse score was performed. Origin-dependent SEO/social fields await a production domain.
 - **Related follow-up:** Mark individual cards `USER_ACCEPTED` only after explicit manual confirmation; add deployment-origin metadata during the deployment workflow.
+
+## Final Frontend Repair Round — Process
+
+- **Status:** `AUTO_VERIFIED — USER_REVIEW_PENDING`
+- **Commits:** `ab3b257`, `5fc00bc`
+- **Changes:** Rebuilt section 05 around the approved editorial split and route reference; retained only ALIGN / SHAPE / BUILD with the approved Arabic content and coherent stage selection. The targeted QA repair fixed the RTL-induced desktop mirroring so editorial content/stages sit left and the route sits right; mobile remains a deliberate linear composition.
+- **Automated/rendered checks:** Process and motion tests pass. Chrome rendered checks covered desktop and mobile, real pointer and keyboard stage changes, 0/50/100% progress synchronization, reduced motion, and overflow. Targeted recheck confirmed the reference orientation at 1920×1080 and 1440×900 and coherent mobile cycling at 390×844.
+- **Manual review:** Compare desktop directly with the approved Process reference; cycle all stages by pointer and keyboard; inspect the route, active copy, hierarchy, and phone layout.
+
+## Final Frontend Repair Round — Project Brief
+
+- **Status:** `AUTO_VERIFIED — USER_REVIEW_PENDING`
+- **Commit:** `12bc20e`
+- **Changes:** Refined panel proportions, centered heading hierarchy, thin framing, fields/options, CTA, and mobile order while preserving the complete frontend form model, validation, payload adapter boundary, and success/error behavior. Mobile places the form before What Happens Next.
+- **Automated/rendered checks:** Model and visual-contract tests pass. Chrome desktop/mobile renders, pointer field/option use, validation focus/error behavior, local development success state, touch sizing, overflow, and reduced-motion visibility were checked.
+- **Manual review:** Compare desktop with the approved Project Brief reference; inspect mobile scanning order, field comfort, helper/error text, CTA weight, and the form/steps relationship.
+
+## Final Frontend Repair Round — Footer
+
+- **Status:** `AUTO_VERIFIED — USER_REVIEW_PENDING`
+- **Commit:** `feb31ca`
+- **Changes:** Replaced social abbreviations with platform icons for the five real configured URLs, retained safe external-link attributes and dynamic year, and tightened mobile hierarchy/spacing without rebuilding the footer.
+- **Automated/rendered checks:** Footer tests pass. Chrome mobile render and center hit-testing confirmed all five social links are visible, enabled, HTTPS, and 44px targets with no overflow.
+- **Manual review:** Inspect mobile stacking and vertical length; verify each real social destination and hover/focus treatment.
+
+## Final Frontend Repair Round — Compact Sticky Navbar
+
+- **Status:** `AUTO_VERIFIED — USER_REVIEW_PENDING`
+- **Commits:** `feb31ca`, `4a5c421`
+- **Changes:** Added a separate post-Hero compact navigation using the real logo and existing anchors. Desktop shows compact links/CTA; mobile uses an accessible menu with Escape, outside-click, and selection closing. Added stable anchor offsets; Hero navigation itself was not redesigned.
+- **Automated/rendered checks:** Accessibility/order/anchor tests pass. Chrome verified hidden-in-Hero and stable post-Hero states, real pointer menu use, Escape and selection close, valid destinations, and Process/Contact landing clearance on desktop/mobile.
+- **Manual review:** Scroll through the Hero threshold; use every desktop anchor; open/close the mobile menu and confirm the compact state feels native and stable.
+
+## Final Frontend Repair Round — Motion
+
+- **Status:** `AUTO_VERIFIED — USER_REVIEW_PENDING`
+- **Commit:** `3fbf615`
+- **Audit:** Existing Hero drift/entrance, Selected Work timeline, What We Build state feedback, FAQ accordion, shared timing tokens, and global reduced-motion coverage were retained. Footer remains nearly static; Sticky Nav already had a restrained entrance.
+- **Changes:** Added only a keyed 180ms Process active-copy/gate response and a subtle observer-gated Project Brief structural entrance with visible fallbacks. Reduced-motion paths force complete visible content and remove transitions.
+- **Manual review:** Judge the Process change response and Project Brief entrance at normal motion; enable reduced motion and confirm immediate complete content.
+
+## Final Frontend Repair Round — Launch Hygiene
+
+- **Status:** `AUTO_VERIFIED — USER_REVIEW_PENDING`
+- **Commit:** `34b99e8`
+- **Changes:** Corrected `llms.txt` to the approved #050505 / #111111 / #FDFBF9 / #FE5E0E palette while preserving current one-page services, work, process, and contact facts. Robots remains crawlable. No fake sitemap/domain was published because no production origin exists in repository evidence. The approved 404 was not redesigned.
+- **Automated checks:** Launch tests pass; production build copies `public/404.html` byte-for-byte to `dist/404.html`; referenced assets and home navigation remain valid.
+- **Deployment-only:** Once the real production origin/provider is known, create a one-URL homepage sitemap, add its absolute URL to robots, add origin-dependent canonical/social/schema fields if desired, and verify unknown routes return the approved page with a true HTTP 404 rather than an SPA 200 fallback.
+
+## Final Frontend Repair Round — Rendered QA
+
+- **Status:** `AUTO_VERIFIED — USER_REVIEW_PENDING`
+- **Candidate:** `5fc00bc`
+- **Full rendered matrix:** Chrome at 1920×1080, 1536×864, 1440×900, 1366×768, 1280×800, 1280×720, 1024×768, 768×1024, 430×932, 393×852, 390×844, 375×812, and 360×800. Firefox static renders at 1440×900 and 390×844; Firefox interaction assertions were not claimed because its headless anchor captures painted too early.
+- **Initial blockers:** Process desktop orientation mirrored; sticky anchors concealed section starts; Chrome warned about Hero `fetchPriority` casing.
+- **Repairs/recheck:** `5fc00bc` fixed Process orientation and `4a5c421` fixed anchor offset plus emitted lowercase `fetchpriority` without changing Hero layout. Targeted Chrome recheck at 1920×1080, 1440×900, and 390×844 confirmed all three fixes, zero console errors/warnings/page errors, no horizontal overflow, coherent mobile Process cycling, safe anchor landings, and reduced-motion completeness.
+- **Final repository gates:** `node --test tests/*.test.mjs tests/*.test.ts` — 15/15 suites pass; `npm run build` — pass (46 modules); `cmp public/404.html dist/404.html` — pass; `git diff --check` — pass.
+- **Known limitations:** Visual taste, physical-device feel, and explicit user acceptance remain manual. Four local image requests were aborted only during immediate QA reload/resize navigation; final renders contained the assets and no console/page error occurred.
