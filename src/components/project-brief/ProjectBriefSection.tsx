@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState, type FormEvent } from 'react'
+import { useEffect, useMemo, useRef, useState, type FormEvent } from 'react'
 
 import {
   contactFieldByMethod,
@@ -48,6 +48,8 @@ export default function ProjectBriefSection({
   const [values, setValues] = useState<ProjectBriefValues>(initialValues)
   const [errors, setErrors] = useState<ProjectBriefErrors>({})
   const [status, setStatus] = useState<FormStatus>('idle')
+  const [hasEntered, setHasEntered] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
   const nameRef = useRef<HTMLInputElement>(null)
   const projectTypeRef = useRef<HTMLInputElement>(null)
   const descriptionRef = useRef<HTMLTextAreaElement>(null)
@@ -61,6 +63,24 @@ export default function ProjectBriefSection({
 
   const contactField = values.contactMethod ? contactFieldByMethod[values.contactMethod] : null
   const isUnconnected = submission.status === 'unconnected'
+
+  useEffect(() => {
+    const section = sectionRef.current
+    if (!section || !('IntersectionObserver' in window)) {
+      setHasEntered(true)
+      return undefined
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setHasEntered(true)
+        observer.disconnect()
+      }
+    }, { threshold: 0.14 })
+
+    observer.observe(section)
+    return () => observer.disconnect()
+  }, [])
 
   const clearError = (field: keyof ProjectBriefValues) => {
     setErrors((current) => {
@@ -133,7 +153,7 @@ export default function ProjectBriefSection({
   }
 
   return (
-    <section className="project-brief" id="contact" aria-labelledby="project-brief-title">
+    <section ref={sectionRef} className={`project-brief${hasEntered ? ' is-visible' : ''}`} id="contact" aria-labelledby="project-brief-title">
       <div className="project-brief__canvas">
         <header className="project-brief__topline">
           <p className="project-brief__chapter" dir="ltr">

@@ -82,7 +82,7 @@ export default function ProcessSection() {
               <span className="process-route__curve process-route__curve--bright" />
               {processStages.map((stage, index) => <span className={`process-route__gate process-route__gate--${index + 1}${index === activeIndex ? ' is-active' : ''}`} key={stage.number}><i /><b>{stage.number}</b></span>)}
             </div>
-            <div className="process-route__active-copy"><span dir="ltr">{activeStage.number} / {activeStage.code}</span><strong>{activeStage.title}</strong><p>{activeStage.body}</p></div>
+            <div key={activeStage.number} className="process-route__active-copy"><span dir="ltr">{activeStage.number} / {activeStage.code}</span><strong>{activeStage.title}</strong><p>{activeStage.body}</p></div>
           </div>
         </div>
 

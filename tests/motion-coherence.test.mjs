@@ -125,6 +125,26 @@ test('WhatWeBuild section has a JS fallback that adds is-visible when Intersecti
   assert.match(source, /setHasEntered\(true\)/)
 })
 
+test('Process stage response is keyed and uses restrained motion', async () => {
+  const source = await read('src/components/ProcessSection.tsx')
+  const css = await read('src/index.css')
+
+  assert.match(source, /key=\{activeStage\.number\}/)
+  assert.match(css, /\.process-route__active-copy\s*\{[^}]*animation:\s*process-route-copy-in\s+var\(--dur-interactive/s)
+  assert.match(css, /@keyframes\s+process-route-copy-in/)
+})
+
+test('Project Brief entrance is observer-gated with a visible fallback', async () => {
+  const source = await read('src/components/project-brief/ProjectBriefSection.tsx')
+  const css = await read('src/components/project-brief/ProjectBriefSection.css')
+
+  assert.match(source, /!\('IntersectionObserver' in window\)/)
+  assert.match(source, /setHasEntered\(true\)/)
+  assert.match(source, /project-brief\$\{hasEntered \? ' is-visible' : ''\}/)
+  assert.match(css, /\.project-brief\.is-visible\s+\.project-brief__intro\s*\{[^}]*animation:/s)
+  assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)[\s\S]*?\.project-brief\.is-visible[\s\S]*?animation:\s*none\s*!important/)
+})
+
 
 // ── 4. Selected Work high-risk interaction architecture preservation ──────────
 

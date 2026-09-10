@@ -110,6 +110,26 @@
   direction: rtl;
 }
 
+.project-brief.is-visible .project-brief__intro {
+  animation: project-brief-rise-in 260ms var(--ease-enter) both;
+}
+
+.project-brief.is-visible .project-brief__composition {
+  animation: project-brief-rise-in 320ms var(--ease-enter) both;
+}
+
+@keyframes project-brief-rise-in {
+  from {
+    opacity: 0.72;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .project-brief__route-art {
   position: absolute;
   bottom: -182px;
@@ -757,12 +777,17 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .project-brief.is-visible .project-brief__intro,
+  .project-brief.is-visible .project-brief__composition,
   .project-brief__field input,
   .project-brief__field textarea,
   .project-brief__option > span,
   .project-brief__option > span::before,
   .project-brief__submit {
-    transition: none;
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 
