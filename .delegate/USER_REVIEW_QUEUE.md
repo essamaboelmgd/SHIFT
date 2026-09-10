@@ -169,3 +169,44 @@ This queue distinguishes automated verification from explicit user acceptance. N
 - **Repairs/recheck:** `5fc00bc` fixed Process orientation and `4a5c421` fixed anchor offset plus emitted lowercase `fetchpriority` without changing Hero layout. Targeted Chrome recheck at 1920×1080, 1440×900, and 390×844 confirmed all three fixes, zero console errors/warnings/page errors, no horizontal overflow, coherent mobile Process cycling, safe anchor landings, and reduced-motion completeness.
 - **Final repository gates:** `node --test tests/*.test.mjs tests/*.test.ts` — 15/15 suites pass; `npm run build` — pass (46 modules); `cmp public/404.html dist/404.html` — pass; `git diff --check` — pass.
 - **Known limitations:** Visual taste, physical-device feel, and explicit user acceptance remain manual. Four local image requests were aborted only during immediate QA reload/resize navigation; final renders contained the assets and no console/page error occurred.
+
+## Focused Manual Review Repair — Process Static Artwork
+
+- **Status:** `AUTO_VERIFIED — USER_REVIEW_PENDING`
+- **Commit:** `40f5cff`
+- **Changes:** Kept the restrained left-side ALIGN / SHAPE / BUILD selection, but fully separated the approved right-side ALIGN route artwork from stage state. The artwork no longer changes, remounts, or animates when a stage row is selected.
+- **Automated/rendered checks:** Process/motion contracts and the full Node suite pass. Chrome at 1440×900, 768×900, and 390×844 verified the editorial split/stacked mobile layout and no overflow. Real pointer selection cycled ALIGN → SHAPE → BUILD while identical artwork crop hashes confirmed the right composition stayed fixed.
+- **Manual review:** Compare desktop directly with the approved Process reference; select all three left rows and confirm only left-side emphasis/progress changes; inspect the intentional mobile stack.
+
+## Focused Manual Review Repair — Project Brief Composition
+
+- **Status:** `AUTO_VERIFIED — USER_REVIEW_PENDING`
+- **Commit:** `1a1e83a`
+- **Changes:** Recovered the stronger prior visual direction with richer framing, headline signal, field and CTA treatment. The What Happens Next panel now uses a full-height flex/grid composition with evenly distributed steps while the form model, validation, payload, and adapter remain unchanged.
+- **Automated/rendered checks:** The existing Project Brief contract and full Node suite pass. Chrome at 1440×900 showed a primary 629px form column and equal-height 469px companion panel; 390×844 preserved headline → form → steps order with comfortable controls and no overflow.
+- **Manual review:** Confirm the desktop form remains primary while the companion panel feels complete; inspect mobile hierarchy, field comfort, error/help text, and CTA weight.
+
+## Focused Manual Review Repair — Footer Mobile
+
+- **Status:** `AUTO_VERIFIED — USER_REVIEW_PENDING`
+- **Commit:** `ee00aed`
+- **Changes:** Reorganized only the mobile breakpoint into a compact brand → navigation → contact → social → language → baseline flow. Existing real links, five social icons, and desktop styling remain intact.
+- **Automated/rendered checks:** Footer contracts and full Node suite pass. Chrome at 390×844 confirmed clean stacking, five 44×44px social targets, and no overlap or horizontal overflow; 1440×900 confirmed the desktop structure remains intact.
+- **Manual review:** Inspect mobile grouping, vertical length, contact wrapping, social alignment, and closing baseline; spot-check desktop for unchanged proportions.
+
+## Focused Manual Review Repair — Chapter Labels
+
+- **Status:** `AUTO_VERIFIED — USER_REVIEW_PENDING`
+- **Commit:** `9db71ed`
+- **Changes:** Added one shared typography/color/rule vocabulary for the recurring number / slash / English label family while preserving each section's established positioning and geometry. No section copy or order changed.
+- **Automated/rendered checks:** A new consistency/order regression contract and all 15 checked-in Node test files pass. Chrome at 1440×900 and 390×844 confirmed consistent Inter 600 labels at 10px/9px with coherent tracking; Selected Work retains its intentional mobile-hidden chapter label.
+- **Manual review:** Scan chapters 01–08 for a coherent family while confirming accepted section layouts remain unchanged.
+
+## Focused Manual Review Repair — Final Rendered QA
+
+- **Status:** `AUTO_VERIFIED — USER_REVIEW_PENDING`
+- **Candidate:** `9db71ed`
+- **Browser/viewports:** Google Chrome 151.0.7922.71 at 1440×900, 768×900, and 390×844.
+- **Result:** All four focused workstreams passed targeted rendered review; accepted Hero, The SHIFT, What We Build, Selected Work, Why SHIFT, and FAQ showed no obvious regression. Every tested viewport had `scrollWidth === clientWidth`; the console had zero errors/exceptions.
+- **Notes:** Chrome emitted one timing warning for the existing Hero `shift-glass-field-900.webp` preload. This round did not reopen accepted Hero delivery. A raw QA scroll that forcibly aligned Process exactly to viewport top could place its rail below the fixed nav; the tested real sticky-nav anchor path retains the previously verified landing offset.
+- **Final gates:** `node --test tests/*.test.mjs` — 15/15 test files pass; `npm run build` — pass (46 modules); `git diff --check` — pass; `cmp public/404.html dist/404.html` — pass.
