@@ -6,7 +6,7 @@
 - الاسم: SHIFT (SHIFT Creative Solutions)
 - التخصص: استوديو متخصص في تصميم وتطوير مواقع وحلول ويب تركز على النمو (Arabic-first, RTL)
 - نطاق العمل: تصميم وتطوير مواقع وحلول ويب تعكس مستوى الأعمال وتدعم نموها في المرحلة القادمة
-- الهوية البصرية: ألوان داكنة دقيقة (#0A0A0A) مع إشارة برتقالية (#FE5E0E) وخطوط IBM Plex Sans Arabic وSatoshi وInter
+- الهوية البصرية: ألوان الهوية تشمل Deep Background (#050505)، وLogo Black (#111111)، وOff White (#FDFBF9)، مع إشارة برتقالية Signal Orange (#FE5E0E)، وتدرجات داكنة دقيقة (#0A0A0A)، وخطوط IBM Plex Sans Arabic وSatoshi وInter
 - البريد الإلكتروني: shift.software.eg@gmail.com
 - واتساب: +20 155 6538 323 (https://wa.me/201556538323)
 
