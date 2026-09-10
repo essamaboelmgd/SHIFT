@@ -52,3 +52,14 @@ test('Process uses an editorial route rather than the rejected panel and card tr
   assert.match(repair, /@media \(max-width: 899px\)[\s\S]*\.process-section__layout\s*\{[\s\S]*flex-direction:\s*column/)
   assert.match(repair, /\.process-stage-progress__button\s*\{[\s\S]*min-height:\s*54px/)
 })
+
+test('Process pins desktop structure to LTR while keeping Arabic editorial copy RTL', async () => {
+  const css = await read('src/index.css')
+  const repair = css.slice(css.lastIndexOf('/* Process — approved reference repair'))
+
+  assert.match(repair, /\.process-section__rail\s*\{[\s\S]*direction:\s*ltr/)
+  assert.match(repair, /\.process-section__layout\s*\{[\s\S]*direction:\s*ltr/)
+  assert.match(repair, /\.process-section__editorial\s*\{[\s\S]*direction:\s*rtl/)
+  assert.match(repair, /\.process-stage__button\s*\{[\s\S]*direction:\s*ltr/)
+  assert.match(repair, /\.process-route\s*\{[\s\S]*direction:\s*ltr/)
+})

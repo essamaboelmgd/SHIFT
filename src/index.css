@@ -13137,6 +13137,7 @@ a:focus-visible {
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 2.6px;
+  direction: ltr;
 }
 
 .process-section__rail p { margin: 0; }
@@ -13149,6 +13150,7 @@ a:focus-visible {
   inset: 122px 0 70px;
   display: grid;
   grid-template-columns: minmax(0, 51%) minmax(0, 49%);
+  direction: ltr;
 }
 
 .process-section__editorial {
@@ -13156,6 +13158,7 @@ a:focus-visible {
   z-index: 3;
   padding-right: clamp(44px, 5vw, 78px);
   border-right: 1px solid var(--process-rule);
+  direction: rtl;
 }
 
 .process-section__copy {
@@ -13271,10 +13274,11 @@ a:focus-visible {
   padding: 18px 10px 18px 4px;
   background: transparent;
   text-align: right;
+  direction: ltr;
 }
 .process-stage__code { color: var(--process-muted); font: 500 13px/1.2 Inter, sans-serif; letter-spacing: 2px; text-align: left; }
 .process-stage__code b { color: inherit; font-size: 18px; }
-.process-stage__copy { display: grid; gap: 5px; }
+.process-stage__copy { display: grid; gap: 5px; direction: rtl; }
 .process-stage__copy strong { color: var(--process-paper); font-size: 21px; line-height: 1.35; }
 .process-stage__copy > span { color: var(--process-muted); font-size: 13px; line-height: 1.6; }
 .process-stage__arrow { color: var(--process-muted); font: 300 30px/1 Inter, sans-serif; text-align: right; transition: color var(--dur-interactive, 180ms) ease, transform var(--dur-interactive, 180ms) ease; }
@@ -13289,6 +13293,7 @@ a:focus-visible {
   min-width: 0;
   overflow: hidden;
   padding-left: clamp(44px, 5vw, 74px);
+  direction: ltr;
 }
 .process-route__heading { display: flex; align-items: center; gap: 18px; margin-top: 34px; }
 .process-route__heading p { margin: 0; color: var(--process-orange); font: 700 9px/1 Inter, sans-serif; letter-spacing: 4px; }
@@ -13317,7 +13322,7 @@ a:focus-visible {
 .process-route__gate--3 { left: 76%; top: 18px; }
 .process-route__gate.is-active { border-color: var(--process-orange); color: var(--process-orange); box-shadow: inset 0 0 24px rgba(254,94,14,.08); }
 .process-route__gate.is-active i { background: #ffad19; box-shadow: 0 0 16px 5px rgba(254,94,14,.75); }
-.process-route__active-copy { position: absolute; right: 2%; bottom: 56px; width: min(380px, 65%); text-align: right; animation: process-route-copy-in var(--dur-interactive) var(--ease-out) both; }
+.process-route__active-copy { position: absolute; right: 2%; bottom: 56px; width: min(380px, 65%); direction: rtl; text-align: right; animation: process-route-copy-in var(--dur-interactive) var(--ease-out) both; }
 .process-route__active-copy > span { color: var(--process-orange); font: 600 10px/1 Inter, sans-serif; letter-spacing: 2px; }
 .process-route__active-copy strong { display: block; margin-top: 12px; color: var(--process-paper); font-size: 25px; }
 .process-route__active-copy p { margin: 8px 0 0; color: var(--process-muted); font-size: 14px; line-height: 1.65; }
@@ -13340,6 +13345,7 @@ a:focus-visible {
   color: var(--process-muted);
   font: 600 8px/1 Inter, sans-serif;
   letter-spacing: 3.6px;
+  direction: ltr;
 }
 .process-section__footer i { width: 24px; height: 1px; background: var(--process-orange); }
 .process-section__footer span:last-child { margin-left: auto; }
