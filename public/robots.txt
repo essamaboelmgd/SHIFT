@@ -1,0 +1,7 @@
+# SHIFT robots.txt
+# Domain and deployment origin are configured at deployment time.
+
+User-agent: *
+Allow: /
+
+# Sitemap is deployment-blocked until production origin is configured.

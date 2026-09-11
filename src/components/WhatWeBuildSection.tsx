@@ -74,7 +74,6 @@ export default function WhatWeBuildSection() {
   const [activeSlug, setActiveSlug] = useState('business')
   const [hasEntered, setHasEntered] = useState(false)
   const activeOption = buildOptions.find((option) => option.slug === activeSlug) ?? buildOptions[1]
-  const activeTabId = `build-tab-${activeOption.slug}`
   const handleTabKeyDown = (event: KeyboardEvent<HTMLButtonElement>, optionSlug: string) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault()
@@ -91,19 +90,77 @@ export default function WhatWeBuildSection() {
     const direction = event.key === 'ArrowLeft' || event.key === 'ArrowUp' ? -1 : 1
     const nextOption = buildOptions[(currentIndex + direction + buildOptions.length) % buildOptions.length]
     setActiveSlug(nextOption.slug)
+    setTimeout(() => document.getElementById(`build-tab-${nextOption.slug}`)?.focus(), 0)
   }
+
+  const renderDetail = (option: (typeof buildOptions)[number]) => {
+    const tabId = `build-tab-${option.slug}`
+
+    return (
+      <article
+        className="what-build__detail"
+        key={option.slug}
+        id="build-active-detail"
+        role="tabpanel"
+        aria-labelledby={tabId}
+        aria-live="polite"
+      >
+        <div className="what-build__detail-signal" aria-hidden="true">
+          <svg viewBox="0 0 620 300" role="presentation">
+            <path className="what-build__detail-signal-orbit" d="M-24 254C108 42 382 20 646 154" />
+            <path className="what-build__detail-signal-route" d="M-18 264C124 286 218 164 318 188S506 258 646 92" />
+            <circle className="what-build__detail-signal-node" cx="32" cy="264" r="6" />
+            <circle className="what-build__detail-signal-node" cx="318" cy="188" r="6" />
+            <circle className="what-build__detail-signal-node what-build__detail-signal-node--active" cx="646" cy="92" r="8" />
+          </svg>
+        </div>
+        <div className="what-build__detail-meta" dir="ltr">
+          <span>{option.number} / {option.english}</span>
+          <span className="what-build__detail-status">
+            {option.kind === 'custom' ? 'CUSTOM PATH' : 'SELECTED PATH'}
+          </span>
+        </div>
+
+        <h3 id={`build-detail-${option.slug}`}>{option.title}</h3>
+
+        <div className="what-build__detail-copy">
+          <p>
+            <span className="what-build__detail-label">مناسبة لو</span>
+            {option.fit}
+          </p>
+          <p>
+            <span className="what-build__detail-label">النتيجة</span>
+            {option.outcome}
+          </p>
+        </div>
+
+        <div className="what-build__detail-bottom">
+          <p className="what-build__detail-pricing">{option.pricing}</p>
+          <a className="what-build__detail-cta" href="#contact">
+            خلّينا نحدد البداية
+            <span aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="presentation">
+                <path d="M5 19 19 5M9 5h10v10" />
+              </svg>
+            </span>
+          </a>
+        </div>
+      </article>
+    )
+  }
+
   const renderTab = (option: (typeof buildOptions)[number]) => {
     const isActive = option.slug === activeOption.slug
 
     return (
       <button
         className={`what-build__selector-tab${isActive ? ' is-active' : ''}`}
-        key={option.slug}
         type="button"
         id={`build-tab-${option.slug}`}
         role="tab"
         aria-selected={isActive}
         aria-controls="build-active-detail"
+        tabIndex={isActive ? 0 : -1}
         onClick={() => setActiveSlug(option.slug)}
         onKeyDown={(event) => handleTabKeyDown(event, option.slug)}
       >
@@ -111,6 +168,17 @@ export default function WhatWeBuildSection() {
         <span className="what-build__selector-english" dir="ltr">{option.english}</span>
         <span className="what-build__selector-result">{option.result}</span>
       </button>
+    )
+  }
+
+  const renderSelectorItem = (option: (typeof buildOptions)[number]) => {
+    const isActive = option.slug === activeOption.slug
+
+    return (
+      <div className={`what-build__selector-item${isActive ? ' is-active' : ''}`} key={option.slug}>
+        {renderTab(option)}
+        {isActive ? renderDetail(option) : null}
+      </div>
     )
   }
 
@@ -170,65 +238,15 @@ export default function WhatWeBuildSection() {
         </div>
 
         <div className="what-build__explorer" dir="rtl">
-          <article
-            className="what-build__detail"
-            key={activeOption.slug}
-            id="build-active-detail"
-            role="tabpanel"
-            aria-labelledby={activeTabId}
-            aria-live="polite"
-          >
-            <div className="what-build__detail-signal" aria-hidden="true">
-              <svg viewBox="0 0 620 300" role="presentation">
-                <path className="what-build__detail-signal-orbit" d="M-24 254C108 42 382 20 646 154" />
-                <path className="what-build__detail-signal-route" d="M-18 264C124 286 218 164 318 188S506 258 646 92" />
-                <circle className="what-build__detail-signal-node" cx="32" cy="264" r="6" />
-                <circle className="what-build__detail-signal-node" cx="318" cy="188" r="6" />
-                <circle className="what-build__detail-signal-node what-build__detail-signal-node--active" cx="646" cy="92" r="8" />
-              </svg>
-            </div>
-            <div className="what-build__detail-meta" dir="ltr">
-              <span>{activeOption.number} / {activeOption.english}</span>
-              <span className="what-build__detail-status">
-                {activeOption.kind === 'custom' ? 'CUSTOM PATH' : 'SELECTED PATH'}
-              </span>
-            </div>
-
-            <h3 id={activeTabId}>{activeOption.title}</h3>
-
-            <div className="what-build__detail-copy">
-              <p>
-                <span className="what-build__detail-label">مناسبة لو</span>
-                {activeOption.fit}
-              </p>
-              <p>
-                <span className="what-build__detail-label">النتيجة</span>
-                {activeOption.outcome}
-              </p>
-            </div>
-
-            <div className="what-build__detail-bottom">
-              <p className="what-build__detail-pricing">{activeOption.pricing}</p>
-              <a className="what-build__detail-cta" href="#contact">
-                خلّينا نحدد البداية
-                <span aria-hidden="true">
-                  <svg viewBox="0 0 24 24" role="presentation">
-                    <path d="M5 19 19 5M9 5h10v10" />
-                  </svg>
-                </span>
-              </a>
-            </div>
-          </article>
-
           <nav className="what-build__selector" aria-label="اختار الحل المناسب" role="tablist">
             <p className="what-build__selector-heading">اختار البداية اللي شبه مرحلتك.</p>
 
             <div className="what-build__selector-list">
-              {buildOptions.filter((option) => option.kind === 'core').map(renderTab)}
+              {buildOptions.filter((option) => option.kind === 'core').map(renderSelectorItem)}
             </div>
             <p className="what-build__selector-custom-label" dir="ltr">CUSTOM PATH</p>
             <div className="what-build__selector-custom">
-              {buildOptions.filter((option) => option.kind === 'custom').map(renderTab)}
+              {buildOptions.filter((option) => option.kind === 'custom').map(renderSelectorItem)}
             </div>
           </nav>
         </div>

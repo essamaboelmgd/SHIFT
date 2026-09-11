@@ -1,5 +1,4 @@
-const desktopAperture = '/assets/shift-premium-signal-aperture.png'
-const mobileAperture = desktopAperture
+const desktopAperture = '/assets/shift-premium-signal-aperture.webp'
 const desktopOuterOrbit = '/assets/shift-premium-orbit-outer.svg'
 const mobileOuterOrbit = '/assets/shift-premium-orbit-outer-mobile.svg'
 const secondaryOrbit = '/assets/shift-premium-orbit-secondary.svg'
@@ -34,10 +33,16 @@ function SignalArtwork() {
       role="img"
       aria-label="بوابة دائرية داكنة يخرج منها مسار ضوئي برتقالي"
     >
-      <picture className="shift-signal__aperture">
-        <source media="(max-width: 860px)" srcSet={mobileAperture} />
-        <img src={desktopAperture} alt="" aria-hidden="true" />
-      </picture>
+      <img
+        className="shift-signal__aperture"
+        src={desktopAperture}
+        width={1254}
+        height={1254}
+        loading="lazy"
+        decoding="async"
+        alt=""
+        aria-hidden="true"
+      />
       <picture className="shift-signal__outer-orbit">
         <source media="(max-width: 860px)" srcSet={mobileOuterOrbit} />
         <img src={desktopOuterOrbit} alt="" aria-hidden="true" />
@@ -58,7 +63,6 @@ export default function TheShiftSection() {
       <div className="shift-signal__grid" aria-hidden="true" />
       <div className="shift-signal__glow shift-signal__glow--orange" aria-hidden="true" />
       <div className="shift-signal__glow shift-signal__glow--warm" aria-hidden="true" />
-      {/*<div className="shift-signal__watermark" aria-hidden="true">SHIFT</div>*/}
       <div className="shift-signal__inner">
         <header className="shift-signal__topline">
           <p className="shift-signal__eyebrow" dir="ltr"><span className="shift-signal__eyebrow-dot" />02 / THE SHIFT</p>
@@ -86,7 +90,6 @@ export default function TheShiftSection() {
           <div className="shift-signal__artwork-slot">
             <span className="shift-signal__artwork-frame" aria-hidden="true" />
             <SignalArtwork />
-            {/*<p className="shift-signal__signal-tag" dir="ltr">SIGNAL / 02</p>*/}
             <p className="shift-signal__artwork-note" dir="ltr">A BETTER SIGNAL<br />FOR WHAT COMES NEXT</p>
           </div>
         </div>

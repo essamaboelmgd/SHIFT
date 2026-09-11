@@ -4,7 +4,7 @@ const navItems = [
   { label: 'أعمالنا', href: '#work' },
   { label: 'خدماتنا', href: '#services' },
   { label: 'طريقتنا', href: '#process' },
-  { label: 'عنّا', href: '#about' },
+  { label: 'عنّا', href: '#why-shift' },
 ]
 
 const HERO_ARTWORK_MOBILE_SRC_SET = [
@@ -41,7 +41,7 @@ function HeroArtwork({ className }: { className?: string }) {
         width={1672}
         height={941}
         loading="eager"
-        fetchPriority="high"
+        {...{ fetchpriority: 'high' }}
         decoding="async"
         alt=""
         aria-hidden="true"

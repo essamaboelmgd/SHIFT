@@ -12,6 +12,8 @@ const whyShiftContent = {
 const founder = {
   image: '/assets/why-shift/founder-portrait.webp',
   alt: 'مؤسس SHIFT في بورتريه بإضاءة دافئة وخلفية داكنة',
+  width: 1122,
+  height: 1402,
 } as const
 
 const principles = [
@@ -89,7 +91,14 @@ export default function WhyShiftSection() {
           <figure className="why-shift__portrait">
             <div className="why-shift__portrait-shell">
               <div className="why-shift__portrait-media">
-                <img src={founder.image} alt={founder.alt} loading="lazy" decoding="async" />
+                <img
+                  src={founder.image}
+                  width={founder.width}
+                  height={founder.height}
+                  alt={founder.alt}
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <svg className="why-shift__portrait-orbit" viewBox="0 0 720 760" preserveAspectRatio="none" aria-hidden="true">
                 <path d="M90 690C112 344 242 70 652 8" />

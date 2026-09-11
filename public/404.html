@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0A0A0A" />
+    <meta name="robots" content="noindex, follow" />
+    <title>SHIFT — الصفحة غير موجودة (404)</title>
+    <meta name="description" content="الصفحة المطلوبة غير موجودة. العودة إلى الصفحة الرئيسية لـ SHIFT." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,900&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #0a0a0a;
+        --type: #f7f4ef;
+        --muted: #9b938a;
+        --orange: #fe5e0e;
+        --orange-hover: #ff722b;
+        --border: rgba(247, 244, 239, 0.12);
+        --font-arabic: 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        --font-display: 'Satoshi', sans-serif;
+        --font-meta: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: var(--bg);
+        color: var(--type);
+        font-family: var(--font-arabic);
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .glow-atmosphere {
+        position: absolute;
+        top: -10vw;
+        right: 50%;
+        transform: translateX(50%);
+        width: 80vw;
+        max-width: 900px;
+        height: 480px;
+        background: radial-gradient(ellipse at center, rgba(254, 94, 14, 0.14) 0%, rgba(254, 94, 14, 0) 70%);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 24px clamp(20px, 4vw, 48px);
+        position: relative;
+        z-index: 1;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 16px;
+      }
+
+      .wordmark {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+      }
+
+      .wordmark img {
+        height: 28px;
+        width: auto;
+      }
+
+      .header-meta {
+        font-family: var(--font-meta);
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        color: var(--muted);
+      }
+
+      main {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 60px 0;
+      }
+
+      .error-card {
+        text-align: center;
+        max-width: 580px;
+        margin: 0 auto;
+      }
+
+      .kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--font-meta);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        color: var(--orange);
+        text-transform: uppercase;
+        margin-bottom: 24px;
+      }
+
+      .kicker::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        background-color: var(--orange);
+        border-radius: 50%;
+      }
+
+      .code-display {
+        font-family: var(--font-display);
+        font-size: clamp(64px, 12vw, 120px);
+        font-weight: 900;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        color: var(--type);
+        margin-bottom: 16px;
+      }
+
+      .code-display span {
+        color: var(--orange);
+      }
+
+      h1 {
+        font-size: clamp(24px, 3.5vw, 36px);
+        font-weight: 700;
+        line-height: 1.35;
+        color: var(--type);
+        margin-bottom: 16px;
+      }
+
+      p.description {
+        font-size: clamp(15px, 1.8vw, 17px);
+        line-height: 1.7;
+        color: var(--muted);
+        margin-bottom: 36px;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+      }
+
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background-color: var(--orange);
+        color: #0a0a0a;
+        font-family: var(--font-arabic);
+        font-size: 16px;
+        font-weight: 600;
+        padding: 14px 28px;
+        border-radius: 6px;
+        text-decoration: none;
+        transition: background-color 160ms ease, transform 160ms ease;
+      }
+
+      .btn-primary:hover,
+      .btn-primary:focus-visible {
+        background-color: var(--orange-hover);
+        transform: translateY(-1px);
+        outline: none;
+      }
+
+      .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background-color: transparent;
+        color: var(--type);
+        border: 1px solid var(--border);
+        font-family: var(--font-arabic);
+        font-size: 16px;
+        font-weight: 500;
+        padding: 14px 24px;
+        border-radius: 6px;
+        text-decoration: none;
+        transition: border-color 160ms ease, color 160ms ease;
+      }
+
+      .btn-secondary:hover,
+      .btn-secondary:focus-visible {
+        border-color: rgba(254, 94, 14, 0.4);
+        color: var(--orange);
+        outline: none;
+      }
+
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 24px 0;
+      }
+
+      .footer-inner {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        font-family: var(--font-meta);
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      .footer-inner span {
+        font-family: var(--font-arabic);
+      }
+
+      @media (max-width: 600px) {
+        .actions {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .btn-primary, .btn-secondary {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .footer-inner {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="glow-atmosphere" aria-hidden="true"></div>
+
+    <div class="container">
+      <header>
+        <a class="wordmark" href="/" aria-label="SHIFT — الصفحة الرئيسية">
+          <img src="/logo/wordmark-white.png" alt="SHIFT" />
+        </a>
+        <p class="header-meta" dir="ltr">404 / NOT FOUND</p>
+      </header>
+    </div>
+
+    <main>
+      <div class="container">
+        <div class="error-card">
+          <div class="kicker" dir="ltr">ERROR 404</div>
+          <div class="code-display" dir="ltr">4<span>0</span>4</div>
+          <h1>الصفحة دي مش موجودة.</h1>
+          <p class="description">
+            يبدو أن الرابط غير صحيح أو تم نقله لمكان آخر. تقدر ترجع للصفحة الرئيسية وتكمل تصفحك أو تتواصل معانا مباشرة.
+          </p>
+          <div class="actions">
+            <a class="btn-primary" href="/">
+              <span>العودة للصفحة الرئيسية</span>
+              <span aria-hidden="true">←</span>
+            </a>
+            <a
+              class="btn-secondary"
+              href="https://wa.me/201556538323"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>تواصل عبر واتساب</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-inner">
+          <p dir="ltr">© <span id="current-year">2026</span> SHIFT. <span dir="rtl">جميع الحقوق محفوظة.</span></p>
+          <p dir="ltr">MAKING WHAT MOVES NEXT</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      (function() {
+        var el = document.getElementById('current-year');
+        if (el) el.textContent = new Date().getFullYear();
+      })();
+    </script>
+  </body>
+</html>
