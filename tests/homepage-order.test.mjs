@@ -54,7 +54,7 @@ test('homepage chapter labels use the approved 01–08 sequence', async () => {
   assert.match(faq, /chapterNumber = '07'/)
   assert.match(briefConfig, /chapterNumber: '08'/)
   assert.match(app, /<FaqSection chapterNumber="07" \/>/)
-  assert.match(app, /<ProjectBriefSection chapterNumber="08" \/>/)
+  assert.match(app, /<ProjectBriefSection chapterNumber="08" submissionAdapter=\{projectBriefAdapter\} \/>/)
 })
 
 test('all static internal homepage hashes resolve to one preserved id', async () => {

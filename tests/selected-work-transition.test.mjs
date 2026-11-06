@@ -41,8 +41,8 @@ test('Selected Work reserves pointer capture for touch swipe tracking so mouse b
 test('Selected Work keeps truthful project links and proof', async () => {
   const source = await read('src/components/SelectedWorkSection.tsx')
 
-  assert.match(source, /proof: '14K\+ users'/)
-  assert.doesNotMatch(source, /slug: 'argossecops'[\s\S]{0,220}proof:/)
+  assert.match(source, /proof: '18K\+ users'/)
+  assert.doesNotMatch(source, /argos/i)
   assert.match(source, />شوف المشروع</)
   assert.doesNotMatch(source, /VIEW CASE STUDY|CASE STUDY \/|caseStudyUrl/)
   assert.match(source, /projectUrl: 'https:\/\/kupecut\.com'/)

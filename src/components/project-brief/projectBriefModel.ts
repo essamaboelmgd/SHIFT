@@ -88,6 +88,25 @@ export function createDevelopmentMockAdapter(delayMs = 650): ProjectBriefSubmiss
   }
 }
 
+export function createAppsScriptProjectBriefAdapter(
+  endpoint: string,
+  fetchImpl: typeof fetch = fetch,
+): ProjectBriefSubmissionAdapter {
+  return async (payload) => {
+    // text/plain keeps this a "simple" request: Apps Script cannot answer a CORS preflight.
+    const response = await fetchImpl(endpoint, {
+      method: 'POST',
+      headers: { 'content-type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload),
+    })
+    if (!response.ok) throw new Error('Project brief submission failed.')
+    const result: unknown = await response.json()
+    if (!result || typeof result !== 'object' || !('ok' in result) || result.ok !== true) {
+      throw new Error('Project brief submission failed.')
+    }
+  }
+}
+
 export function resolveProjectBriefAdapter({
   isDevelopment,
   adapter,

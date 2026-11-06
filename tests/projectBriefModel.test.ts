@@ -2,6 +2,7 @@ import assert from 'node:assert/strict'
 import test from 'node:test'
 
 import {
+  createAppsScriptProjectBriefAdapter,
   createDevelopmentMockAdapter,
   resolveProjectBriefAdapter,
   toProjectBriefPayload,
@@ -98,4 +99,33 @@ test('uses an injected real adapter in production', () => {
 test('development mock resolves without transmitting data', async () => {
   const adapter = createDevelopmentMockAdapter(0)
   await assert.doesNotReject(adapter(toProjectBriefPayload(validValues)))
+})
+
+const endpoint = 'https://script.google.com/macros/s/test-deployment/exec'
+
+test('real adapter posts the payload to the Apps Script endpoint without a CORS preflight', async () => {
+  let request: { input: RequestInfo | URL; init?: RequestInit } | undefined
+  const adapter = createAppsScriptProjectBriefAdapter(endpoint, async (input, init) => {
+    request = { input, init }
+    return new Response(JSON.stringify({ ok: true }), {
+      headers: { 'content-type': 'application/json' },
+    })
+  })
+
+  await adapter(toProjectBriefPayload(validValues))
+
+  assert.equal(request?.input, endpoint)
+  assert.equal(request?.init?.method, 'POST')
+  assert.deepEqual(request?.init?.headers, { 'content-type': 'text/plain;charset=utf-8' })
+  assert.deepEqual(JSON.parse(String(request?.init?.body)), toProjectBriefPayload(validValues))
+})
+
+test('real adapter rejects when Apps Script does not confirm the row', async () => {
+  const adapter = createAppsScriptProjectBriefAdapter(endpoint, async () => (
+    new Response(JSON.stringify({ ok: false, error: 'invalid_payload' }), {
+      headers: { 'content-type': 'application/json' },
+    })
+  ))
+
+  await assert.rejects(adapter(toProjectBriefPayload(validValues)))
 })

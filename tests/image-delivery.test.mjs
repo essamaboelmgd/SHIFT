@@ -22,7 +22,9 @@ const heroSource = readFileSync(
 test('Selected Work, Aperture, and Why Shift use verified existing WebP assets without nonexistent responsive sources', () => {
   // Selected Work uses verified WebP paths
   assert.match(selectedWorkSource, /image:\s*'\/assets\/selected-work\/kupecut\.webp'/)
-  assert.match(selectedWorkSource, /image:\s*'\/assets\/selected-work\/argos\.webp'/)
+  for (const name of ['elhawary', 'electron', 'zamzam']) {
+    assert.match(selectedWorkSource, new RegExp(`image:\\s*'/assets/selected-work/${name}\\.webp'`))
+  }
 
   // Selected Work does not reference nonexistent AVIF variants or speculative srcset
   assert.doesNotMatch(selectedWorkSource, /\.avif/)
@@ -68,9 +70,8 @@ test('Hero remains eager/high-priority while below-fold images are lazy and asyn
 })
 
 test('Images specify stable intrinsic dimensions matching actual raster pixels', () => {
-  // Selected Work dimensions matching actual WebP rasters (Kupecut: 5096x2588, Argos: 3814x1934)
-  assert.match(selectedWorkSource, /width:\s*5096,\s*height:\s*2588/)
-  assert.match(selectedWorkSource, /width:\s*3814,\s*height:\s*1934/)
+  // Selected Work dimensions matching actual WebP rasters (all project captures: 2560x1300)
+  assert.equal(selectedWorkSource.match(/width:\s*2560,\s*height:\s*1300/g)?.length, 4)
   assert.match(selectedWorkSource, /width=\{project\.width\}/)
   assert.match(selectedWorkSource, /height=\{project\.height\}/)
 
@@ -96,7 +97,7 @@ test('Selected Work preserves single authoritative navigation, fallback, proof, 
   assert.match(selectedWorkSource, /if \(!image\.src\.endsWith\(FALLBACK_IMAGE\)\) image\.src = FALLBACK_IMAGE/)
 
   // Truthful proof and link behaviors
-  assert.match(selectedWorkSource, /proof: '14K\+ users'/)
+  assert.match(selectedWorkSource, /proof: '18K\+ users'/)
   assert.match(selectedWorkSource, /projectUrl: 'https:\/\/kupecut\.com'/)
 })
 

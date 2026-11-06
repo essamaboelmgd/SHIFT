@@ -34,3 +34,6 @@ export const contactFieldByMethod = {
   phone: { label: 'رقم الهاتف', type: 'tel', inputMode: 'tel', autoComplete: 'tel' },
   email: { label: 'البريد الإلكتروني', type: 'email', inputMode: 'email', autoComplete: 'email' },
 } as const
+
+// Public web-app URL of the Apps Script bound to the "SHIFT Leads" Google Sheet (see server/Code.gs).
+export const PROJECT_BRIEF_ENDPOINT = 'https://script.google.com/macros/s/AKfycby0kl8NKE_xFz-T-RNCnQeKZH3vdquX8FdawS8HjKezfwd81tTUebnrrlfqd3v8RXkzqg/exec'

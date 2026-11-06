@@ -7,10 +7,15 @@ import WhatWeBuildSection from './components/WhatWeBuildSection'
 import WhyShiftSection from './components/WhyShiftSection'
 import FaqSection from './components/FaqSection'
 import ProjectBriefSection from './components/project-brief/ProjectBriefSection'
+import { createAppsScriptProjectBriefAdapter } from './components/project-brief/projectBriefModel'
+import { PROJECT_BRIEF_ENDPOINT } from './components/project-brief/projectBriefConfig'
 import SiteFooter from './components/site-footer/SiteFooter'
 import StickyNav from './components/StickyNav'
 
 export default function App() {
+  const projectBriefAdapter = import.meta.env.DEV || !PROJECT_BRIEF_ENDPOINT
+    ? undefined
+    : createAppsScriptProjectBriefAdapter(PROJECT_BRIEF_ENDPOINT)
   useEffect(() => {
     const root = document.documentElement
     let frame = 0
@@ -50,7 +55,7 @@ export default function App() {
       <ProcessSection />
       <WhyShiftSection />
       <FaqSection chapterNumber="07" />
-      <ProjectBriefSection chapterNumber="08" />
+      <ProjectBriefSection chapterNumber="08" submissionAdapter={projectBriefAdapter} />
       <SiteFooter />
     </div>
   )

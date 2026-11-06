@@ -64,7 +64,7 @@ test('chapter labels keep the approved 01–08 source order and copy', async () 
     '<ProcessSection',
     '<WhyShiftSection',
     '<FaqSection chapterNumber="07" />',
-    '<ProjectBriefSection chapterNumber="08" />',
+    '<ProjectBriefSection chapterNumber="08" submissionAdapter={projectBriefAdapter} />',
   ]
   let previousPosition = -1
   for (const marker of approvedOrder) {
