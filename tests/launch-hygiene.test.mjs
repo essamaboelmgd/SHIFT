@@ -84,7 +84,7 @@ test('robots.txt and llms.txt are valid and grounded in repository evidence', ()
   assert.match(llms, /Logo Black.*#111111/)
   assert.match(llms, /Off White.*#FDFBF9/)
   assert.match(llms, /Signal Orange.*#FE5E0E/)
-  assert.doesNotMatch(llms, /https?:\/\/(?!wa\.me|kupecut\.com|mr-elhawary\.com|mr-electron\.com|zamzamdesign\.com)[^\s)]+/, 'no invented domain URLs in llms.txt')
+  assert.doesNotMatch(llms, /https?:\/\/(?!wa\.me|kupecut\.com|mr-elhawary\.com|mr-electron\.com)[^\s)]+/, 'no invented domain URLs in llms.txt')
   assert.equal(existsSync(new URL('../public/sitemap.xml', import.meta.url)), false, 'no fake sitemap file in public')
 })
 

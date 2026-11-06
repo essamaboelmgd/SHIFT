@@ -63,17 +63,6 @@ export const projects: SelectedWorkProject[] = [
     width: 2560,
     height: 1300,
   },
-  {
-    slug: 'zamzam',
-    title: 'ZAMZAM',
-    category: 'BUSINESS WEBSITE',
-    shortResult: 'موقع لشركة مطابخ بيعرض شغلها ويوصّل العميل لطلب عرض سعر بسرعة.',
-    image: '/assets/selected-work/zamzam.webp',
-    alt: 'لقطة من موقع مطابخ زمزم',
-    projectUrl: 'https://zamzamdesign.com',
-    width: 2560,
-    height: 1300,
-  },
 ]
 
 type Direction = 'next' | 'prev'
