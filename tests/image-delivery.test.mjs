@@ -22,7 +22,7 @@ const heroSource = readFileSync(
 test('Selected Work, Aperture, and Why Shift use verified existing WebP assets without nonexistent responsive sources', () => {
   // Selected Work uses verified WebP paths
   assert.match(selectedWorkSource, /image:\s*'\/assets\/selected-work\/kupecut\.webp'/)
-  for (const name of ['elhawary', 'electron']) {
+  for (const name of ['elhawary', 'electron', 'elsaed']) {
     assert.match(selectedWorkSource, new RegExp(`image:\\s*'/assets/selected-work/${name}\\.webp'`))
   }
 
@@ -71,7 +71,7 @@ test('Hero remains eager/high-priority while below-fold images are lazy and asyn
 
 test('Images specify stable intrinsic dimensions matching actual raster pixels', () => {
   // Selected Work dimensions matching actual WebP rasters (all project captures: 2560x1300)
-  assert.equal(selectedWorkSource.match(/width:\s*2560,\s*height:\s*1300/g)?.length, 3)
+  assert.equal(selectedWorkSource.match(/width:\s*2560,\s*height:\s*1300/g)?.length, 4)
   assert.match(selectedWorkSource, /width=\{project\.width\}/)
   assert.match(selectedWorkSource, /height=\{project\.height\}/)
 

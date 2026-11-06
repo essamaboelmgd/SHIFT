@@ -63,6 +63,17 @@ export const projects: SelectedWorkProject[] = [
     width: 2560,
     height: 1300,
   },
+  {
+    slug: 'al-ain',
+    title: 'AL AIN',
+    category: 'EDUCATION PLATFORM',
+    shortResult: 'منصة لغة عربية بتجمع كل الفروع في مكان واحد: شرح، تدريبات، واختبارات.',
+    image: '/assets/selected-work/elsaed.webp',
+    alt: 'لقطة من منصة العين للغة العربية مع الأستاذ السعيد السيد',
+    projectUrl: 'https://elsaedelsayed.com',
+    width: 2560,
+    height: 1300,
+  },
 ]
 
 type Direction = 'next' | 'prev'
